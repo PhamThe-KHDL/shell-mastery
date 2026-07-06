@@ -20,7 +20,7 @@ Rough anchor points. Dates are aspirational. **We're in pre-stable (`0.0.x`)** �
 
 | Version | Theme | Target |
 |---|---|---|
-| **0.0.2** | Coverage polish — deepen lessons 7-14, add missing cheatsheets, and tighten onboarding docs | Q4 2026 |
+| **0.0.2** | Coverage polish — deepen the shipped 14-lesson track, add missing cheatsheets, and tighten onboarding docs | Q4 2026 |
 | **0.0.3** | Real-world projects — 3 more end-to-end case studies (dotfiles installer, ssh-tunnel supervisor, repo audit) | Q1 2027 |
 | **0.0.4** | Portability & POSIX story — dedicated lesson + tested `#!/bin/sh` companions | Q2 2027 |
 | **0.0.5** | Interactive lesson runner — `./tools/study.sh` guides you through the curriculum | Q3 2027 |

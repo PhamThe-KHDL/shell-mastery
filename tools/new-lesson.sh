@@ -3,7 +3,7 @@ set -euo pipefail
 
 # Scaffold a new lesson under learn/.
 # Usage: ./tools/new-lesson.sh <slug>
-# Example: ./tools/new-lesson.sh 07-networking
+# Example: ./tools/new-lesson.sh 15-your-topic
 #
 # Shape created:
 #   learn/<slug>/

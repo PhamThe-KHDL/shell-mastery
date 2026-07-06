@@ -12,7 +12,7 @@ Given `$path`, extract dir, filename (with extension), stem (no extension), and 
 Parse a line like `[2024-01-15T10:30:45Z] user=alice action=login` into three variables `ts`, `user`, `action` using `=~`.
 
 ## 4. Function returning an array
-Write `top_n LIST N` that populates an out-array with the largest `N` elements of the numeric input array. Use nameref.
+Write `top_n SRC_ARRAY OUT_ARRAY N` that populates `OUT_ARRAY` with the largest `N` elements of the numeric input array `SRC_ARRAY`. Use nameref.
 
 ## 5. When NOT to use bash
 Give one example where reaching for Python is the right call — and why the shell version would be worse.

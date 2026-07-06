@@ -65,7 +65,7 @@ The `learn/` track now contains fourteen shipped lessons. Each lesson has `en/{n
 | 4 | I/O and processes — subshell, xargs, trap, signals, jobs | [en](learn/04-io-and-processes/en/notes.md) | [vi](learn/04-io-and-processes/vi/notes.md) | 3h | 🟢 shipped |
 | 5 | Robust scripts — `set -euo pipefail`, IFS, error handling | [en](learn/05-robust-scripts/en/notes.md) | [vi](learn/05-robust-scripts/vi/notes.md) | 2h | 🟢 shipped |
 | 6 | Advanced — arrays, associative arrays, parameter expansion, coproc | [en](learn/06-advanced/en/notes.md) | [vi](learn/06-advanced/vi/notes.md) | 3h | 🟢 shipped |
-| 7 | Networking — `curl`, `ssh`, DNS, ports | [en](learn/07-networking/en/notes.md) | [vi](learn/07-networking/vi/notes.md) | 2h+ | 🟢 shipped |
+| 7 | Networking — `curl`, `ssh`, `scp`, DNS, ports | [en](learn/07-networking/en/notes.md) | [vi](learn/07-networking/vi/notes.md) | 2h+ | 🟢 shipped |
 | 8 | File management — `find`, `tar`, `rsync`, safe delete | [en](learn/08-file-management/en/notes.md) | [vi](learn/08-file-management/vi/notes.md) | 2h+ | 🟢 shipped |
 | 9 | Processes — inspect, signal, background, priority | [en](learn/09-processes/en/notes.md) | [vi](learn/09-processes/vi/notes.md) | 2h+ | 🟢 shipped |
 | 10 | Cron and scheduling — cron, timers, `flock` | [en](learn/10-cron-and-scheduling/en/notes.md) | [vi](learn/10-cron-and-scheduling/vi/notes.md) | 2h+ | 🟢 shipped |
@@ -97,14 +97,29 @@ The repository is organized so a learner follows a **linear path** through `lear
 
 ```mermaid
 graph TD
-    subgraph learn["📖 learn/ — the curriculum"]
-        L1[01-basics]
-        L2[02-text-processing]
-        L3[03-scripting-fundamentals]
-        L4[04-io-and-processes]
-        L5[05-robust-scripts]
-        L6[06-advanced]
-        L1 --> L2 --> L3 --> L4 --> L5 --> L6
+    subgraph learn["📖 learn/ — the curriculum (14 lessons)"]
+        direction TB
+        subgraph core["core path (1–6)"]
+            L1[01-basics]
+            L2[02-text-processing]
+            L3[03-scripting-fundamentals]
+            L4[04-io-and-processes]
+            L5[05-robust-scripts]
+            L6[06-advanced]
+            L1 --> L2 --> L3 --> L4 --> L5 --> L6
+        end
+        subgraph applied["applied track (7–14)"]
+            L7[07-networking]
+            L8[08-file-management]
+            L9[09-processes]
+            L10[10-cron-and-scheduling]
+            L11[11-json-and-yaml]
+            L12[12-dates-and-times]
+            L13[13-networking-2]
+            L14[14-testing-shell]
+            L7 --> L13
+        end
+        L6 --> applied
     end
 
     subgraph reference["📚 reference material"]
@@ -171,12 +186,14 @@ exec zsh
 which bash
 ```
 
-Recommended tooling (also required to run tests locally):
+Recommended tooling:
 
 ```sh
 brew install shellcheck bats-core shfmt    # macOS
 sudo apt install shellcheck bats           # Debian/Ubuntu
 ```
+
+`shellcheck` and `bats` are the actual requirements for the repo checks below. `shfmt` is recommended and reported by `tools/check-deps.sh` when present, but it is currently optional.
 
 Verify everything is ready:
 
@@ -222,13 +239,13 @@ Then add a row to [`learn/INDEX.md`](learn/INDEX.md).
 bats tests/                                # run the bats suite
 ```
 
-CI runs both on every push and PR — see [`.github/workflows/build.yml`](.github/workflows/build.yml).
+CI runs both on PRs targeting `main`, pushes to `main`, the weekly scheduled run, and manual dispatches — see [`.github/workflows/build.yml`](.github/workflows/build.yml).
 
 ---
 
 ## 📚 Documentation
 
-Everything is documented in-tree. Each folder has its own `README.md`.
+Everything is documented in-tree. Each major area has its own entry document, usually a `README.md` and, for `learn/`, the main index at `learn/INDEX.md`.
 
 | Path | What lives here |
 | --- | --- |
@@ -261,7 +278,7 @@ IFS=$'\n\t'                  # (in robust scripts) don't split on spaces
 - **shellcheck must pass** at `--severity=warning`. `# shellcheck disable=...` requires a comment explaining why.
 - **Commits reference the lesson**: `feat(learn/02): add sed portability example` or `fix(projects/backup-tool): atomic mv on same fs`.
 - **Prose is bilingual (`en/` + `vi/`) in `learn/` only**. Everything else stays English.
-- **Semantic versioning** applies to `lib/` public interfaces — see [`CHANGELOG.md`](CHANGELOG.md) for the rules.
+- **Semantic versioning** applies to `lib/` public interfaces from `0.1.0` onward — see [`CHANGELOG.md`](CHANGELOG.md) for the current pre-stable rules.
 
 ---
 
@@ -269,7 +286,7 @@ IFS=$'\n\t'                  # (in robust scripts) don't split on spaces
 
 Highlights from [`ROADMAP.md`](ROADMAP.md):
 
-- **v0.0.2** — coverage: lessons on networking, file management, processes, cron, JSON/YAML.
+- **v0.0.2** — coverage polish: deepen the shipped 14-lesson track, add missing cheatsheets, and tighten onboarding docs.
 - **v0.0.3** — real-world projects: dotfiles installer, SSH tunnel supervisor, repo audit, disk usage alerter.
 - **v0.0.4** — portability & POSIX story: dedicated lesson + tested `#!/bin/sh` companions.
 - **v0.0.5** — interactive lesson runner: `./tools/study.sh` guides you through the curriculum.

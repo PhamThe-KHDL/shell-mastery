@@ -73,6 +73,18 @@ ssh -o BatchMode=yes web-01 uptime
 
 Script tốt phải phân biệt được ít nhất “kết nối lỗi” với “remote command lỗi”.
 
+## 5. Default an toàn
+
+Các mặc định tốt cho shell networking:
+
+```sh
+curl -fsS --max-time 5 URL
+ssh -o BatchMode=yes host cmd
+nc -z host port
+```
+
+`BatchMode=yes` quan trọng trong automation: nó báo SSH đừng dừng lại chờ password prompt mà bạn sẽ không bao giờ thấy trong cron hay CI.
+
 ## Đọc thêm
 - Xem `ROADMAP.md` để biết bài này sẽ nối tiếp sang `13-networking-2`.
 - Đọc `topics/portability` trước khi dựa vào các flag chỉ có trên Linux.

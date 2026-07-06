@@ -87,7 +87,7 @@ for i in {1..5}; do
     echo "$i"
 done
 
-for i in $(seq 1 5); do        # POSIX-friendly
+for i in $(seq 1 5); do        # common, but not POSIX
     echo "$i"
 done
 
@@ -102,6 +102,8 @@ done
 ```
 
 Reading a file line by line: **always** use `while read -r`, never `for line in $(cat file)` — the latter word-splits and glob-expands.
+
+`seq` is widely available, but it is not a POSIX requirement. If you need maximum portability, prefer a `while` loop with an integer counter.
 
 ## 5. Functions
 

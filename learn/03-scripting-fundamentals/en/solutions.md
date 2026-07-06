@@ -38,9 +38,11 @@ for ((i=0; i<count; i++)); do echo "hello, $name"; done
 retry() {
     local max=$1; shift
     local attempt=1 delay=1
+    local status
     while (( attempt <= max )); do
         "$@" && return 0
-        (( attempt == max )) && return $?
+        status=$?
+        (( attempt == max )) && return "$status"
         sleep "$delay"
         delay=$(( delay * 2 ))
         attempt=$(( attempt + 1 ))

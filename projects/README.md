@@ -78,4 +78,4 @@ If you've finished the lessons and want to practice on your own:
 - **`disk-usage-alert`** — check filesystem usage, email/notify if a threshold is crossed, don't re-alert within N hours.
 - **`ssh-tunnel-supervisor`** — bring up an SSH tunnel, restart it if it dies, exit cleanly on SIGTERM.
 
-Each of these exercises a distinct combination of skills from lessons 3–6. Write it, test it, then read this repo's projects and see what you'd change.
+Each of these exercises a distinct combination of skills from across the curriculum — argument parsing and robustness from lessons 3–6, plus networking, scheduling, and process handling from lessons 7–13. Write it, test it, then read this repo's projects and see what you'd change.

@@ -87,7 +87,7 @@ for i in {1..5}; do
     echo "$i"
 done
 
-for i in $(seq 1 5); do        # POSIX-friendly
+for i in $(seq 1 5); do        # phổ biến, nhưng không phải POSIX
     echo "$i"
 done
 
@@ -102,6 +102,8 @@ done
 ```
 
 Đọc file từng dòng: **luôn** dùng `while read -r`, đừng `for line in $(cat file)` — cái sau word-split và glob-expand.
+
+`seq` có mặt ở rất nhiều hệ, nhưng nó không phải utility bắt buộc của POSIX. Nếu bạn cần portability cao, hãy ưu tiên `while` loop với biến đếm số nguyên.
 
 ## 5. Function
 

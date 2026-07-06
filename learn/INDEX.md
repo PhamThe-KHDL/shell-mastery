@@ -102,15 +102,17 @@ Read these when the lesson calls them out — not in advance, not all at once:
 - [topics/portability](../topics/portability/README.md) — bash vs POSIX vs BSD tools. Relevant when your scripts need to run on servers or Alpine containers.
 - [topics/performance](../topics/performance/README.md) — when shell is slow, when to switch to `awk`/Python. Read after lesson 4.
 
-## After the last lesson
+## After the core path
 
-Once you finish lesson 6 the training wheels are off. Then:
+Once you finish lesson 6, you already have the core habits needed to read and build real shell scripts. Then:
 
 1. **Read the projects.** [`projects/backup-tool`](../projects/backup-tool/) and [`projects/log-analyzer`](../projects/log-analyzer/) are real, tested scripts. Read them like case studies — how they parse arguments, handle errors, structure functions.
 2. **Read [`tests/README.md`](../tests/README.md).** It complements lesson 14 with worked examples from the actual repo and shows how the test tree mirrors `lib/` and `projects/`.
 3. **Rewrite one of the bats suites** in your own style, then compare. Different test shapes teach you as much as one polished version.
 4. **Add a project of your own.** Pick something you'd actually use (a `gh` wrapper, a rsync-based backup, a log-tailer) and put it in `projects/<yours>/`.
 5. **Rescue a bash script you already have.** Add strict mode, add tests, run shellcheck. Compare before/after.
+
+If you continue through the full 14-lesson track, this is also where lessons 7-14 start paying off heavily: networking, file-management, scheduling, JSON/YAML, dates, and testing stop being separate topics and become part of real script design.
 
 ## FAQ
 

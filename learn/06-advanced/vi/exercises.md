@@ -12,7 +12,7 @@ Cho `$path`, tách dir, filename (có ext), stem (không ext), và extension ch�
 Parse dòng `[2024-01-15T10:30:45Z] user=alice action=login` thành 3 biến `ts`, `user`, `action` bằng `=~`.
 
 ## 4. Function trả về array
-Viết `top_n LIST N` bơm ra 1 out-array chứa `N` phần tử lớn nhất của array số đầu vào. Dùng nameref.
+Viết `top_n SRC_ARRAY OUT_ARRAY N` để bơm `N` phần tử lớn nhất từ array số đầu vào `SRC_ARRAY` sang `OUT_ARRAY`. Dùng nameref.
 
 ## 5. Khi nào KHÔNG dùng bash
 Cho 1 ví dụ Python là lựa chọn đúng — và vì sao bản shell sẽ tệ hơn.

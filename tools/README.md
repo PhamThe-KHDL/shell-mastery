@@ -50,7 +50,7 @@ All prose files start with a `TODO` outline and the example is a runnable stub. 
 Naming convention:
 - Prefix with a two-digit number (`07-...`), padded so `ls` sorts correctly.
 - Slug in kebab-case, lowercase.
-- Reserved numbers 01–06 are taken by the current curriculum.
+- Reserved numbers 01–14 are taken by the current curriculum.
 
 ### lint-all.sh
 
