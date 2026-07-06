@@ -83,5 +83,5 @@ It gets painful when you need:
 At that point, Python `pytest` plus `subprocess` is usually the better tool.
 
 ## Further reading
-- `tests/README.md` — the current in-repo bridge before this full lesson is written out.
+- `tests/README.md` — the applied in-repo companion to this lesson, with worked examples from the actual test suite.
 - `projects/` test files as worked examples you can read right now.

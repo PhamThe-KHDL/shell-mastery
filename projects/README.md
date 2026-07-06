@@ -15,6 +15,24 @@ Each project lives in its own folder with:
 | [`backup-tool/`](backup-tool/) | Timestamped atomic tar+gzip backups with retention | `getopts`/long-args, `trap`, atomic `mv`, `mapfile`, dry-run pattern, input validation |
 | [`log-analyzer/`](log-analyzer/) | Summarize Combined Log Format access logs from stdin or a file | pipeline composition, `awk` aggregation, stdin fallback, temp file cleanup |
 
+## First run guide
+
+If you are new to the repo, do not just read project code cold. Use this order:
+
+1. Read the project `README.md`.
+2. Run the command once exactly as documented.
+3. Run its bats test file once.
+4. Then read the script and compare what you expected against what the implementation actually did.
+
+Fastest starting points:
+
+```sh
+./projects/backup-tool/backup.sh --help
+./projects/log-analyzer/analyze.sh tests/fixtures/log-analyzer.sample.log
+bats tests/projects_backup_tool.bats
+bats tests/projects_log_analyzer.bats
+```
+
 ## How to read a project
 
 1. **Read the README first.** Understand what problem it solves and how it's used.
@@ -23,6 +41,13 @@ Each project lives in its own folder with:
 4. **Look for the safety features.** Where does it validate input? Where does it clean up? What does it do when someone hits Ctrl-C halfway?
 5. **Read the tests.** They document intended behavior more precisely than prose.
 6. **Change one thing.** Break something on purpose, rerun the tests. If nothing fails, the tests are inadequate — good learning too.
+
+Pay attention to boundaries while reading:
+
+- where arguments stop and real work begins
+- where temp files are created and cleaned up
+- which commands are treated as trusted dependencies
+- which failures return exit 2 versus exit 1
 
 ## Adding your own project
 

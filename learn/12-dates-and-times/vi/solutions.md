@@ -1,10 +1,33 @@
 # Lời giải 12-dates-and-times
 
-## 1.
-Mục tiêu là output portable, dù command cụ thể có thể khác giữa GNU và BSD `date`.
+## 1. In timestamp ISO 8601
 
-## 2.
-Dùng format timestamp sortable như `%Y%m%d-%H%M%S`.
+```bash
+date -u +%Y-%m-%dT%H:%M:%SZ
+```
 
-## 3.
-Toán tử số học shell `(( b > a ))` là đủ khi cả hai giá trị đã ở dạng epoch seconds.
+`-u` ép dùng UTC. Format string này tạo ra timestamp ổn định, sort được, và dễ dùng giữa nhiều hệ thống.
+
+## 2. Tạo filename có ngày giờ
+
+```bash
+stamp=$(date -u +%Y%m%d-%H%M%S)
+echo "backup-${stamp}.tar.gz"
+```
+
+Format này gọn, sortable, và an toàn cho filename vì không có khoảng trắng hay dấu `:`.
+
+## 3. So sánh hai epoch
+
+```bash
+a=1720000000
+b=1720000060
+
+if (( b > a )); then
+    echo "later"
+else
+    echo "not later"
+fi
+```
+
+Khi cả hai giá trị đã ở epoch seconds, không còn gì đặc biệt nữa. So sánh số nguyên thông thường chính là công cụ đúng nhất.

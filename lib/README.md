@@ -28,6 +28,13 @@ log_info "starting up"
 
 The `# shellcheck source=/dev/null` comment silences SC1091 (shellcheck can't follow dynamic paths). Alternatively, hard-code the path: `# shellcheck source=lib/logger.sh`.
 
+If you are new to sourceable shell code, remember the difference:
+
+- `bash myscript.sh` starts a new process
+- `. lib/logger.sh` runs the file in the current shell
+
+That means libraries should define functions and variables, not "do work immediately" on load.
+
 ## Usage examples
 
 ### logger.sh
@@ -99,3 +106,12 @@ The distinction is testability. A `snippets/` file is a copy-paste template you 
 4. Passes shellcheck at `--severity=warning`.
 
 When you find yourself sourcing the same snippet in three scripts, that's the signal to move it.
+
+## Reading order for this folder
+
+If you want the gentlest path through `lib/`, read in this order:
+
+1. `strings.sh` — easiest to understand, no external commands
+2. `logger.sh` — introduces small side effects and env-driven behavior
+3. `retry.sh` — introduces loops, backoff, and command execution
+4. `tempdir.sh` — introduces traps and cleanup, which are the sharpest edges

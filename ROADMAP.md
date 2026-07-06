@@ -20,7 +20,7 @@ Rough anchor points. Dates are aspirational. **We're in pre-stable (`0.0.x`)** �
 
 | Version | Theme | Target |
 |---|---|---|
-| **0.0.2** | Coverage — fill the gaps in v0.0.1's curriculum (networking, file-mgmt, processes, cron, JSON/YAML) | Q4 2026 |
+| **0.0.2** | Coverage polish — deepen lessons 7-14, add missing cheatsheets, and tighten onboarding docs | Q4 2026 |
 | **0.0.3** | Real-world projects — 3 more end-to-end case studies (dotfiles installer, ssh-tunnel supervisor, repo audit) | Q1 2027 |
 | **0.0.4** | Portability & POSIX story — dedicated lesson + tested `#!/bin/sh` companions | Q2 2027 |
 | **0.0.5** | Interactive lesson runner — `./tools/study.sh` guides you through the curriculum | Q3 2027 |
@@ -30,22 +30,20 @@ Rough anchor points. Dates are aspirational. **We're in pre-stable (`0.0.x`)** �
 
 ## By area
 
-### `learn/` — new lessons
+### `learn/` — curriculum polish
 
-Planned additions, in rough priority order. The directories for these lessons now exist as draft lessons under `learn/`; the work left is polishing them until they match the depth and finish of lessons 1-6:
+Lessons `07-14` now exist in-tree with bilingual notes, exercises, solutions, and runnable examples. The work left here is no longer "create the lesson"; it is "push each lesson closer to the depth and finish of `01-06`."
 
-- [ ] **`07-networking`** — `curl`, `wget`, `ss`/`netstat`, `dig`, `nc`, SSH & SCP idioms, retry patterns for flaky endpoints.
-- [ ] **`08-file-management`** — `find` deep dive, `tar`/`zip` archive strategies, safe `rm`, `rsync` for backups.
-- [ ] **`10-cron-and-scheduling`** — cron syntax, `at`, systemd timers, common cron gotchas (`$PATH`, `HOME`, TERM), locking with `flock`.
-- [ ] **`11-json-and-yaml`** — `jq` fundamentals, `yq`, reading API responses in bash, when to stop and use Python.
-- [ ] **`14-testing-shell`** — bats-core deep dive, integration testing, mocking commands with `$PATH` shims, coverage with `bashcov`.
-- [ ] **`09-processes`** — `ps`, `top`, `htop`, `pgrep`/`pkill`, `nohup`, `disown`, `nice`/`ionice`, `strace`/`lsof` basics.
-- [ ] **`12-dates-and-times`** — GNU vs BSD `date`, epoch conversion, ISO 8601, timezone gotchas.
-- [ ] **`13-networking-2`** — writing simple HTTP servers with `nc`, reverse tunnels, SSH multiplexing, `ProxyCommand`.
+- [ ] **Deepen `07-networking`** — add `scp`, `wget`, `dig`, and retry/backoff examples for flaky endpoints.
+- [ ] **Deepen `08-file-management`** — expand `find` patterns, archive verification, and safer deletion workflows.
+- [ ] **Deepen `09-processes`** — cover `nohup`, `disown`, `nice`, `lsof`, and inspection/debugging workflows.
+- [ ] **Deepen `10-cron-and-scheduling`** — add `at`, systemd timers, and more lock/debug patterns.
+- [ ] **Deepen `11-json-and-yaml`** — add richer `jq` transforms, defaults, and multi-field extraction patterns.
+- [ ] **Deepen `12-dates-and-times`** — add GNU/BSD side-by-side recipes and more parsing examples.
+- [ ] **Deepen `13-networking-2`** — add SSH multiplexing, reverse tunnels, and `~/.ssh/config` case studies.
+- [ ] **Deepen `14-testing-shell`** — add command mocking, fixture layout, integration-test shape, and coverage notes.
 
-Each lesson still ships bilingual (`en/` + `vi/`) prose, English examples, exercises, and solutions. Adding one lesson is roughly 3 days of focused writing plus review.
-
-If only one lesson gets added next, it should probably be `14-testing-shell`: the repo already teaches learners to read and extend bats suites, but the curriculum does not yet have a dedicated testing module to match that outcome explicitly.
+The repo now has a complete 14-lesson path. The remaining gap is polish depth, not missing directories.
 
 ### `topics/` — cross-cutting deep dives
 
@@ -59,7 +57,7 @@ If only one lesson gets added next, it should probably be `14-testing-shell`: th
 
 - [ ] `find.md` — every useful `find` flag and idiom.
 - [ ] `curl.md` — the 20 flags you'll actually use.
-- [ ] `jq.md` — after the JSON lesson lands.
+- [ ] `jq.md` — now that the JSON lesson exists, promote its recurring patterns into a one-page reference.
 - [ ] `ssh.md` — client config, ControlMaster, tunnels, keys.
 - [ ] `tar.md` — archive/extract patterns, common footguns.
 - [ ] `date.md` — GNU + BSD side-by-side.
@@ -121,7 +119,7 @@ Additions must pass `shellcheck --severity=warning`, have a bats test file, and 
 
 ### Meta
 
-- [ ] `CONTRIBUTING.md` with detailed PR checklist.
+- [x] `CONTRIBUTING.md` with detailed PR checklist.
 - [ ] `CODE_OF_CONDUCT.md`.
 - [ ] Issue templates for lesson requests, bug reports, project ideas.
 - [ ] Add a `screenshots/` folder or GIFs demonstrating the projects.

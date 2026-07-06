@@ -24,6 +24,18 @@ If a snippet stabilizes and you find yourself pasting it into three scripts, pro
 3. Rename variables to match your domain.
 4. Add validation for required flags.
 5. Delete the trailing `# ... your logic here ...` placeholder and start writing.
+6. Run `shellcheck` on the new script before you trust the snippet adaptation.
+7. If the same adapted shape appears in several scripts, stop copying and promote it into `lib/`.
+
+## Editing checklist after paste
+
+The biggest beginner mistake with templates is leaving in assumptions from the original snippet. Before calling the script "done", check:
+
+- Did you rename every variable so it matches your domain?
+- Did you remove options you do not actually support?
+- Did you add required-input validation near the top?
+- Did you update `usage()` so the help text matches reality?
+- Did you test one success path and one misuse path?
 
 ## Not everything belongs here
 

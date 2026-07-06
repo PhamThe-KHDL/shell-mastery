@@ -2,6 +2,29 @@
 
 Curated. Each item includes what it's for and when to reach for it. Not a link dump.
 
+## How to use this page
+
+Do not try to read everything here in one sitting. Use it like this:
+
+1. Work through the repo lessons first.
+2. When a lesson exposes a weak spot, come here for one external explanation on that exact topic.
+3. Prefer one primary reference plus one worked example over opening ten tabs.
+
+If you are not sure where to start, use the lesson-to-reference map below.
+
+## Lesson-to-reference map
+
+- **Lessons 1-2** — `The Linux Command Line`, `man bash`, and Bash Pitfalls.
+- **Lessons 3-5** — Google Shell Style Guide, ShellCheck, and Bash Hackers Wiki.
+- **Lesson 6** — Bash Reference Manual and Bash Hackers Wiki for parameter expansion and arrays.
+- **Lessons 7 and 13** — ShellCheck, `man ssh`, `man nc`, and general portability notes.
+- **Lesson 8** — `man find`, `man tar`, `man rsync`, plus portability notes for BSD/GNU differences.
+- **Lesson 9** — `man ps`, `man pgrep`, `man kill`, and debugging references.
+- **Lesson 10** — `man 5 crontab`, systemd timer docs if you use Linux, and portability notes.
+- **Lesson 11** — `jq` manual, `yq` docs, and Python `subprocess` once logic grows beyond shell.
+- **Lesson 12** — portability notes plus the local `man date` on every platform you target.
+- **Lesson 14** — bats-core docs and this repo's `tests/` tree as worked examples.
+
 ## Must-read (short list)
 
 - **[Bash Pitfalls (Greg's Wiki)](https://mywiki.wooledge.org/BashPitfalls)** — a hall of shame of common mistakes. 40 short entries. Read one a day for a month; every entry is a bug you would have shipped.

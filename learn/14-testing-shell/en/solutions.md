@@ -1,10 +1,55 @@
 # Solutions 14-testing-shell
 
-## 1.
-Use `load '../lib/foo.sh'` and plain shell assertions for direct function tests.
+## 1. Write one library test
 
-## 2.
-`run "$SCRIPT"` then check `$status` instead of letting the test abort early.
+```bash
+#!/usr/bin/env bats
 
-## 3.
-`mktemp -d` plus `teardown()` is the clean default for filesystem tests.
+load '../lib/strings.sh'
+
+@test "trim removes outer whitespace" {
+    result=$(trim "  hello  ")
+    [ "$result" = "hello" ]
+}
+```
+
+Library tests usually `load` the file and call the function directly. That keeps the test tight and makes failures easier to understand.
+
+## 2. Test a script failure
+
+```bash
+#!/usr/bin/env bats
+
+SCRIPT="./projects/backup-tool/backup.sh"
+
+@test "missing --source exits 2" {
+    run "$SCRIPT" --dest /tmp/out
+    [ "$status" -eq 2 ]
+    [[ "$output" == *"--source is required"* ]]
+}
+```
+
+`run` is the important helper here. Without it, the non-zero exit would abort the test before you could assert on `$status` and `$output`.
+
+## 3. Use a temp directory
+
+```bash
+#!/usr/bin/env bats
+
+setup() {
+    tmp=$(mktemp -d)
+    printf 'hello\n' >"$tmp/input.txt"
+}
+
+teardown() {
+    rm -rf "$tmp"
+}
+
+@test "script writes output file" {
+    run cp "$tmp/input.txt" "$tmp/output.txt"
+    [ "$status" -eq 0 ]
+    [ -f "$tmp/output.txt" ]
+}
+```
+
+Every test should get its own clean filesystem state. `setup()` creates it, `teardown()` removes it, and nothing leaks into the next test.

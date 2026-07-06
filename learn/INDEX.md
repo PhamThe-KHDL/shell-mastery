@@ -33,18 +33,18 @@ Each folder is a slug — the number is just for sort order. Inserting a lesson 
 | 13 | Networking 2 — tunnels, proxies, `nc` workflows | [en](13-networking-2/en/notes.md) | [vi](13-networking-2/vi/notes.md) | draft | 7 |
 | 14 | Testing shell — bats, fixtures, failure-path tests | [en](14-testing-shell/en/notes.md) | [vi](14-testing-shell/vi/notes.md) | draft | 3, 5 |
 
-Lessons 1-6 are the shipped core. Lessons 7-14 now exist as draft lessons with notes, exercises, solutions, and runnable examples, but they still need more polish to fully match the first six.
+Lessons 1-6 are the shipped core. Lessons 7-14 are now fully present in-tree with notes, exercises, solutions, and runnable examples; they are usable today, but still need another polishing pass to fully match the first six.
 
-Total shipped material: ~16 hours of study material. Add another ~10 hours of exercises + tinkering to actually internalize it.
+The first six polished lessons are about ~16 hours of study material. If you include lessons 7-14 as they exist today, the available in-repo curriculum is materially larger. Add another ~10 hours of exercises + tinkering to actually internalize the core six alone.
 
 ## Anatomy of a lesson
 
 ```
 NN-topic/
 ├── en/
-│   ├── notes.md          # concepts and syntax reference (~200 lines)
-│   ├── exercises.md      # 4–5 problems, no answers
-│   └── solutions.md      # reference answers with brief explanations
+│   ├── notes.md          # concepts, patterns, and syntax reference
+│   ├── exercises.md      # usually 3–5 problems, no answers
+│   └── solutions.md      # reference answers with code and short explanations
 ├── vi/                   # same three files, translated
 └── examples/             # runnable scripts, shared, English comments
     ├── 01-*.sh
@@ -107,7 +107,7 @@ Read these when the lesson calls them out — not in advance, not all at once:
 Once you finish lesson 6 the training wheels are off. Then:
 
 1. **Read the projects.** [`projects/backup-tool`](../projects/backup-tool/) and [`projects/log-analyzer`](../projects/log-analyzer/) are real, tested scripts. Read them like case studies — how they parse arguments, handle errors, structure functions.
-2. **Read [`tests/README.md`](../tests/README.md).** The current repo teaches testing through worked examples in `tests/` before the dedicated testing lesson lands.
+2. **Read [`tests/README.md`](../tests/README.md).** It complements lesson 14 with worked examples from the actual repo and shows how the test tree mirrors `lib/` and `projects/`.
 3. **Rewrite one of the bats suites** in your own style, then compare. Different test shapes teach you as much as one polished version.
 4. **Add a project of your own.** Pick something you'd actually use (a `gh` wrapper, a rsync-based backup, a log-tailer) and put it in `projects/<yours>/`.
 5. **Rescue a bash script you already have.** Add strict mode, add tests, run shellcheck. Compare before/after.
@@ -130,4 +130,4 @@ That's expected. Subshells confuse everyone the first time. Re-run `learn/04-io-
 Sure. But do the exercises anyway — they surface the gaps you didn't know you had.
 
 **Where do I learn bats testing in a structured way?**
-Right now: read [`tests/README.md`](../tests/README.md) and study the test files under `tests/`. A dedicated `14-testing-shell` lesson is planned next because testing is the biggest remaining gap in the current six-lesson curriculum.
+Start with [`14-testing-shell`](14-testing-shell/en/notes.md) or its [Vietnamese version](14-testing-shell/vi/notes.md), then read [`tests/README.md`](../tests/README.md) and the actual bats files under `tests/` to see the lesson applied to real repo code.

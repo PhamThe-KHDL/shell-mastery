@@ -10,6 +10,12 @@ Use these when:
 
 If you don't know what you want, go to [`learn/`](../learn/) or [`topics/`](../topics/) — those explain concepts. Cheatsheets don't teach; they remind.
 
+If you are a beginner, treat a cheatsheet as the second stop, not the first:
+
+1. learn the concept in `learn/`
+2. read the fuller explanation in `topics/` if needed
+3. come back here once you only need syntax recall
+
 ## Available cheatsheets
 
 | File | Covers |
@@ -42,3 +48,5 @@ Cheatsheets aren't meant to be read in order, but if you're new:
 - Every example must actually work — copy into a terminal and verify before committing.
 - No prose beyond a one-line note next to each item.
 - Highlight traps with `**Pitfall**:` at the bottom.
+
+Good cheatsheet additions are things readers need to look up repeatedly. If a contribution mainly explains why something works, it probably belongs in `learn/` or `topics/` instead.

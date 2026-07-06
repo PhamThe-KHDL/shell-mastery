@@ -4,7 +4,7 @@
 
 **A structured learning repository for Unix shell — bilingual notes, runnable examples, tested libraries, and real projects, from `ls` to `set -euo pipefail`.**
 
-Fourteen lessons in total, with six fully shipped core lessons and eight draft next-step lessons, plus five deep-dive topics, seven cheatsheets, four shell comparisons, two real-world projects, and a sourceable library — everything shellcheck-clean, tested where behavior is stable, and CI-verified.
+Fourteen lessons in total, with six fully shipped core lessons and eight expanded next-step lessons that are already usable but still being polished, plus five deep-dive topics, seven cheatsheets, four shell comparisons, two real-world projects, and a sourceable library — everything shellcheck-clean, tested where behavior is stable, and CI-verified.
 
 ![version](https://img.shields.io/badge/version-0.0.1-blue?style=flat-square) ![bash](https://img.shields.io/badge/bash-4.0+-4EAA25?style=flat-square&logo=gnubash&logoColor=white) ![shellcheck](https://img.shields.io/badge/shellcheck-clean-00A651?style=flat-square) ![bats](https://img.shields.io/badge/tests-bats--core-8E44AD?style=flat-square) ![languages](https://img.shields.io/badge/prose-en_+_vi-DC382D?style=flat-square) ![scope](https://img.shields.io/badge/scope-open--source-555555?style=flat-square)
 
@@ -32,7 +32,7 @@ By the end of the shipped six-lesson core, you will be able to:
 2. **Write scripts that fail loudly, not silently** — strict mode, input validation at the boundary, atomic writes with `mv`, cleanup on exit and signals.
 3. **Debug systematically** — `set -x`, `PS4`, `trap ERR`, and read shellcheck warnings without googling every code.
 4. **Recognize shell's limits** — spot the tasks that have outgrown shell and reach for `awk`, Python, or Go with confidence.
-5. **Start testing your bash with confidence** — read and extend bats suites for real scripts now, then pick up dedicated testing patterns as the next module after the current six lessons.
+5. **Start testing your bash with confidence** — read and extend bats suites for real scripts, then work through the dedicated testing lesson to learn fixtures, failure-path assertions, and tempdir-driven tests.
 6. **Read someone else's script and understand what it does** — including the reasons for its safety patterns.
 
 If you're already fluent in all six, this repo is not for you — see [`resources.md`](resources.md) for the next level.
@@ -55,7 +55,7 @@ Shell Mastery is built around five principles:
 
 ## 📖 Learning Path
 
-The `learn/` track now contains six shipped core lessons plus eight draft next-step lessons. Each lesson has `en/{notes,exercises,solutions}.md`, `vi/{notes,exercises,solutions}.md`, and `examples/`.
+The `learn/` track now contains six shipped core lessons plus eight expanded next-step lessons. Each lesson has `en/{notes,exercises,solutions}.md`, `vi/{notes,exercises,solutions}.md`, and `examples/`.
 
 | # | Lesson | English | Vietnamese | ~Time | Status |
 | --- | --- | --- | --- | --- | --- |
@@ -74,7 +74,7 @@ The `learn/` track now contains six shipped core lessons plus eight draft next-s
 | 13 | Networking 2 — tunnels, proxies, `nc` workflows | [en](learn/13-networking-2/en/notes.md) | [vi](learn/13-networking-2/vi/notes.md) | draft | 🟡 draft |
 | 14 | Testing shell — bats, fixtures, failure-path tests | [en](learn/14-testing-shell/en/notes.md) | [vi](learn/14-testing-shell/vi/notes.md) | draft | 🟡 draft |
 
-The first six lessons are the polished core. Lessons 7-14 now exist in-tree as draft lessons with notes, exercises, solutions, and runnable examples; they still need more polish to fully match the depth of the core six. Full study loop, prerequisites, and FAQ live in [`learn/INDEX.md`](learn/INDEX.md).
+The first six lessons are the polished core. Lessons 7-14 are now fully present in-tree with notes, exercises, solutions, and runnable examples, and they are detailed enough to study today; they still need another polishing pass to fully match the depth and finish of the core six. Full study loop, prerequisites, and FAQ live in [`learn/INDEX.md`](learn/INDEX.md).
 
 ---
 
@@ -210,7 +210,7 @@ $EDITOR learn/01-basics/en/solutions.md
 ### 4. Scaffold new content
 
 ```sh
-./tools/new-lesson.sh 07-networking        # creates learn/07-networking/{en,vi,examples}
+./tools/new-lesson.sh 15-your-topic        # creates learn/15-your-topic/{en,vi,examples}
 ```
 
 Then add a row to [`learn/INDEX.md`](learn/INDEX.md).

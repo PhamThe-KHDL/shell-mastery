@@ -33,9 +33,21 @@ This directory compares them for two audiences:
 - Whatever you find pleasant. Zsh with oh-my-zsh is a common default. Fish is friendlier for newcomers. Bash is fine — the defaults are just spartan.
 - Common setup: **fish or zsh for interactive, bash for scripts.**
 
+## When this folder matters during the course
+
+Most learners can ignore `shells/` until one of these happens:
+
+- you are on macOS and wonder why interactive zsh differs from bash scripts
+- you hit a feature that exists in bash 4+ but not in `/bin/bash` 3.2
+- you need a script to run under `sh` on Alpine or BusyBox
+
+If none of those are true yet, stay in `learn/` and come back later.
+
 ## The critical rule
 
 **Setting your login shell to X doesn't change what scripts do.** A script with `#!/usr/bin/env bash` always runs in bash, regardless of your login shell. Confusingly, `source script.sh` runs in your current interactive shell — which is why sourcing bash-only code from zsh sometimes fails.
+
+That single rule explains a huge amount of beginner confusion. Many "but it worked in my terminal" bugs are really "I tested it in zsh and then ran it as bash" bugs.
 
 ## Version awareness matters
 

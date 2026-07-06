@@ -26,6 +26,14 @@ Each lesson references topics when relevant. Rough guide:
 | 04 – I/O and processes | debugging |
 | 05 – Robust scripts | debugging, performance |
 | 06 – Advanced | portability, performance |
+| 07 – Networking | portability, shellcheck |
+| 08 – File management | quoting, portability |
+| 09 – Processes | debugging, performance |
+| 10 – Cron and scheduling | debugging, portability |
+| 11 – JSON and YAML | shellcheck, portability |
+| 12 – Dates and times | portability |
+| 13 – Networking 2 | debugging, portability |
+| 14 – Testing shell | shellcheck, debugging |
 
 ## Contributing a topic
 
@@ -43,3 +51,5 @@ topics/<slug>/
 ```
 
 Keep to English only in `topics/` — these are reference material, not primary learning content. The bilingual split lives in `learn/`.
+
+When a topic grows big enough that readers need it repeatedly during the course, prefer linking to it from multiple lessons instead of duplicating the explanation inside each lesson.

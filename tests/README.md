@@ -17,6 +17,12 @@ Slashes in the source path become underscores in the test filename.
 
 `learn/` examples and `snippets/` are intentionally not mirrored here: lesson examples optimize for teaching one idea at a time, and snippets are copy-paste templates rather than stable interfaces.
 
+This split is deliberate:
+
+- `learn/` teaches concepts
+- `lib/` and `projects/` promise behavior
+- `tests/` pins that behavior down so refactors stay honest
+
 ## Prerequisites
 
 ```sh
@@ -101,6 +107,12 @@ Guidelines:
 - Keep tests independent — no shared state between `@test` blocks.
 - Name tests as a description of the behavior, not the function (`"missing required flags: exit 2"` beats `"test_flags"`).
 
+Good default shape for new contributors:
+
+- 1 happy-path test
+- 1 misuse or missing-input test
+- 1 edge case that would have broken in the past
+
 ## Testing scripts vs libraries
 
 For libraries under `lib/`, `load` the file and call the functions directly.
@@ -117,6 +129,13 @@ BACKUP=projects/backup-tool/backup.sh
 ```
 
 The `projects_backup_tool.bats` and `projects_log_analyzer.bats` files are worked examples of this pattern.
+
+When you are unsure how much to test, bias toward public behavior:
+
+- exit codes
+- stderr/user-facing messages
+- created or deleted files
+- output format that another script may consume
 
 ## Things bats can't easily do
 

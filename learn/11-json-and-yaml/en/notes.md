@@ -34,9 +34,65 @@ Think of `jq` as “select, transform, print” for JSON.
 
 For shell scripts, `-r` is important because it prints raw strings instead of JSON-quoted strings.
 
-## 3. YAML follows the same mental model
+You can feed `jq` from either a file or stdin:
 
-For simple config lookups, `yq` feels like `jq`:
+```sh
+jq -r '.name' payload.json
+curl -fsS URL | jq -r '.items[] | .id'
+```
+
+That keeps your shell logic simple. Let `jq` own the JSON parsing; let the shell own the surrounding control flow.
+
+## 3. Arrays and loops need care
+
+This is the unsafe pattern:
+
+```sh
+for x in $(jq -r '.urls[]' file.json); do
+    echo "$x"
+done
+```
+
+Word splitting breaks as soon as an item contains spaces or tabs. Prefer line-based loops:
+
+```sh
+jq -r '.urls[]' file.json | while IFS= read -r url; do
+    echo "checking $url"
+done
+```
+
+This keeps each JSON element intact.
+
+If you need several fields at once, make `jq` serialize them in a shell-friendly way:
+
+```sh
+jq -r '.items[] | [.name, .port] | @tsv' file.json |
+while IFS=$'\t' read -r name port; do
+    echo "$name listens on $port"
+done
+```
+
+## 4. Missing data and failures matter
+
+Real automation rarely gets perfect input. Decide what should happen when a key is missing:
+
+```sh
+jq -er '.token' config.json >/dev/null
+```
+
+With `-e`, `jq` exits non-zero when the filter result is false or null. That is often what you want in scripts that require a field to exist.
+
+If missing data is acceptable, use defaults inside `jq`:
+
+```sh
+jq -r '.port // 8080' config.json
+```
+
+That keeps defaulting logic close to the data lookup.
+
+## 5. YAML follows the same mental model
+
+For simple config lookups, `yq` feels a lot like `jq`:
 
 ```sh
 yq -r '.app.port' config.yml
@@ -44,7 +100,15 @@ yq -r '.app.port' config.yml
 
 That is enough for a lot of shell automation where you need one or two config values and do not want a full language runtime.
 
-## 4. Know when to stop
+Be careful with YAML complexity:
+
+- indentation is structure
+- strings like `yes`, `no`, or dates may be auto-typed
+- multi-document YAML needs more deliberate filters
+
+If the config format grows large, it is often cleaner to load it once in Python than to scatter `yq` calls through a long shell script.
+
+## 6. Know when to stop
 
 Shell + `jq` is great when:
 
@@ -59,6 +123,8 @@ It gets unpleasant when:
 - you need real data structures across several stages
 
 That is the point where Python becomes simpler than “clever shell.”
+
+The practical boundary is this: use shell when JSON is just one step in a pipeline, not when JSON becomes your whole application state.
 
 ## Further reading
 - `resources.md` for external references on `jq` and structured-data tooling.

@@ -34,18 +34,18 @@ On macOS, a common gotcha is installing modern Bash with Homebrew but still havi
 ### new-lesson.sh
 
 ```sh
-./tools/new-lesson.sh 07-networking
+./tools/new-lesson.sh 15-your-topic
 ```
 
 Creates:
 ```
-learn/07-networking/
+learn/15-your-topic/
 ├── en/{notes,exercises,solutions}.md
 ├── vi/{notes,exercises,solutions}.md
 └── examples/01-hello.sh
 ```
 
-All prose files start with a `TODO` outline; the example is a runnable stub. After running, add a row to [`learn/INDEX.md`](../learn/INDEX.md) — the tool prints a reminder.
+All prose files start with a `TODO` outline and the example is a runnable stub. This tool is only the starting point: a lesson is not considered real until the notes explain the topic, the exercises are solvable, the solutions contain concrete code, and the examples are topic-specific. After running, add a row to [`learn/INDEX.md`](../learn/INDEX.md) — the tool prints a reminder.
 
 Naming convention:
 - Prefix with a two-digit number (`07-...`), padded so `ls` sorts correctly.
@@ -56,7 +56,7 @@ Naming convention:
 
 ```sh
 $ ./tools/lint-all.sh
-Linting 28 files...
+Linting 52 files...
 ✅ Clean.
 ```
 
@@ -80,6 +80,13 @@ Follow the repo conventions:
 - A `usage()` function; exit 2 on misuse.
 - Reference the repo root via `$(cd "$(dirname "$0")/.." && pwd)` — never assume the caller ran it from the repo root.
 - Add a bats test if the tool has any real logic (`new-lesson.sh` would benefit from one).
+
+Also document the tool here once it exists:
+
+- what problem it solves
+- the exact command to run
+- its exit-code contract if another script may depend on it
+- any macOS/Linux differences a contributor might hit
 
 ## Ideas to add later
 

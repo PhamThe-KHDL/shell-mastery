@@ -16,6 +16,14 @@ Nghĩa là “bind local port 8080 và gửi traffic qua SSH tới port 80 ở p
 
 Nó cực kỳ hữu ích khi service chỉ truy cập được từ bên trong host hoặc VPC.
 
+Ba pattern cần nhận ra là:
+
+- local forward: `ssh -L local:dest_host:dest_port host`
+- remote forward: `ssh -R remote:dest_host:dest_port host`
+- dynamic SOCKS proxy: `ssh -D 1080 host`
+
+Với hầu hết người học, `-L` là loại nên nắm đầu tiên.
+
 ## 2. Jump host là chuyện bình thường
 
 Nếu production chỉ vào được qua bastion:
@@ -25,6 +33,17 @@ ssh -J bastion target
 ```
 
 Pattern này dễ đọc hơn `ProxyCommand` cũ và là thứ nên học trước tiên.
+
+Nếu bạn hay đi cùng một route, hãy chuyển nó vào `~/.ssh/config`:
+
+```sshconfig
+Host prod
+    HostName prod.internal
+    User deploy
+    ProxyJump bastion
+```
+
+Khi đó chỉ cần `ssh prod`.
 
 ## 3. `nc` để thử nghiệm socket nhanh
 
@@ -40,7 +59,39 @@ Dùng nó để:
 - test xem raw TCP traffic có tới không
 - hiểu client thực sự đang gửi gì
 
-## 4. Tầng này sắc hơn networking cơ bản rất nhiều
+Ví dụ, ở terminal thứ nhất:
+
+```sh
+nc -l 9000
+```
+
+Ở terminal thứ hai:
+
+```sh
+printf 'hello\r\n' | nc 127.0.0.1 9000
+```
+
+Bài thử rất nhỏ này dạy được khá nhiều về hành vi TCP thuần.
+
+Lưu ý rằng cờ của `nc` khác nhau giữa các implementation. OpenBSD `nc` và GNU `netcat` khá giống nhau nhưng không hoàn toàn giống, nên luôn kiểm tra `man nc` trên máy bạn đang dùng.
+
+## 4. Tunnel sống lâu cần thêm vài cờ SSH
+
+Đăng nhập tương tác không phải lúc nào cũng là điều bạn muốn. Với một phiên chỉ để mở tunnel:
+
+```sh
+ssh -N -L 8080:127.0.0.1:80 host
+```
+
+`-N` nghĩa là "không chạy remote command". Bạn cũng thường gặp:
+
+- `-f` để đẩy SSH xuống background sau khi xác thực
+- `-o ExitOnForwardFailure=yes` để fail nhanh nếu tunnel không tạo được
+- `-o ServerAliveInterval=30` cho kết nối sống lâu
+
+Đây là các cờ biến một lệnh "chạy được trên máy tôi" thành thứ có thể automation tương đối ổn.
+
+## 5. Tầng này sắc hơn networking cơ bản rất nhiều
 
 Automation mạng nâng cao có nhiều cạnh sắc hơn `curl`:
 

@@ -1,10 +1,27 @@
 # Lời giải 11-json-and-yaml
 
-## 1.
-Bắt đầu với `jq -r '.name' file.json`.
+## 1. Lấy một field từ JSON
 
-## 2.
-Dùng `jq -r '.[]'` rồi đọc theo từng dòng, đừng flatten JSON thành word list.
+```bash
+jq -r '.name' repo.json
+```
 
-## 3.
-Với YAML, `yq -r '.app.port' config.yml` dùng cùng mental model với `jq`.
+Dùng `-r` để output là text thuần như `shell-mastery`, thay vì chuỗi JSON có dấu ngoặc kép như `"shell-mastery"`.
+
+## 2. Lặp qua array an toàn
+
+```bash
+jq -r '.[]' urls.json | while IFS= read -r url; do
+    echo "$url"
+done
+```
+
+Điểm quan trọng là `while IFS= read -r`, không phải `for url in $(...)`. Cách này vẫn đúng kể cả khi một URL có khoảng trắng hoặc ký tự lạ.
+
+## 3. Đọc một giá trị YAML
+
+```bash
+yq -r '.app.port' config.yml
+```
+
+Đây chính là pattern tương tự `jq`: trỏ vào nested field cần lấy rồi in ở dạng raw để shell script xung quanh sử dụng.

@@ -1,10 +1,33 @@
 # Lời giải 13-networking-2
 
-## 1.
-Đây là pattern kinh điển `ssh -L 8080:127.0.0.1:80 host`.
+## 1. Forward một local port
 
-## 2.
-Một terminal listen; terminal còn lại connect. Mục tiêu là quan sát hành vi socket thô.
+```bash
+ssh -L 8080:127.0.0.1:80 host
+```
 
-## 3.
-Ưu tiên `ssh -J bastion target` nếu SSH của bạn hỗ trợ, thay vì `ProxyCommand` cũ.
+Lệnh này bind port `8080` trên máy bạn rồi forward traffic qua SSH tới port `80` theo góc nhìn từ `host`.
+
+## 2. Listen với netcat
+
+Ở terminal thứ nhất:
+
+```bash
+nc -l 9000
+```
+
+Ở terminal thứ hai:
+
+```bash
+printf 'hello\r\n' | nc 127.0.0.1 9000
+```
+
+Mục tiêu là quan sát byte đi từ đầu này sang đầu kia và xác nhận listener nhận đúng thứ mà client gửi.
+
+## 3. Mô tả jump-host flow
+
+```bash
+ssh -J bastion target
+```
+
+Lệnh này nghĩa là "kết nối tới `target` thông qua `bastion`". Đây là dạng hiện đại và dễ đọc hơn so với pattern `ProxyCommand` cũ.

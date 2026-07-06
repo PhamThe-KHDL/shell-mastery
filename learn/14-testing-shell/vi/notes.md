@@ -83,5 +83,5 @@ Nó bắt đầu khó chịu khi bạn cần:
 Đến lúc đó, Python `pytest` + `subprocess` thường là công cụ tốt hơn.
 
 ## Đọc thêm
-- `tests/README.md` — cầu nối hiện tại trong repo trước khi lesson đầy đủ được viết xong.
+- `tests/README.md` — phần tài liệu đi kèm trong repo, cho bạn xem lesson này được áp dụng vào test suite thật như thế nào.
 - Các file test trong `projects/` như worked example có thể đọc ngay.
