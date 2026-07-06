@@ -84,4 +84,4 @@ Nó bắt đầu khó chịu khi bạn cần:
 
 ## Đọc thêm
 - `tests/README.md` — phần tài liệu đi kèm trong repo, cho bạn xem lesson này được áp dụng vào test suite thật như thế nào.
-- Các file test trong `projects/` như worked example có thể đọc ngay.
+- Thư mục `tests/`, đặc biệt là `tests/projects_backup_tool.bats` và `tests/lib_strings.bats`, như worked example có thể đọc ngay.

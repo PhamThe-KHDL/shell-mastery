@@ -2,6 +2,8 @@
 
 Làm xong đối chiếu với [`solutions.md`](solutions.md).
 
+Lưu ý: bài 1 và 4 cần Bash 4+ (`declare -A`, `local -n`). Bash 3.2 mặc định trên macOS sẽ không chạy nguyên xi các ví dụ này.
+
 ## 1. Dedup giữ thứ tự
 Cho stream các dòng, in mỗi dòng chỉ 1 lần khi xuất hiện lần đầu (giữ nguyên thứ tự gốc). Dùng associative array — không dùng `sort`.
 

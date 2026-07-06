@@ -34,12 +34,22 @@ run systemctl restart myapp
 
 ## 4.
 ```sh
-[[ -d /opt/myapp ]] || mkdir -p /opt/myapp
-id -u myapp &>/dev/null || useradd --system myapp
-install -m0644 myapp.service /etc/systemd/system/myapp.service
-systemctl daemon-reload
+#!/usr/bin/env bash
+set -euo pipefail
+
+install -d -m0755 /opt/myapp
+
+if ! id -u myapp >/dev/null 2>&1; then
+    useradd --system --home /opt/myapp --shell /usr/sbin/nologin myapp
+fi
+
+unit=/etc/systemd/system/myapp.service
+if ! cmp -s myapp.service "$unit"; then
+    install -m0644 myapp.service "$unit"
+    systemctl daemon-reload
+fi
 ```
-Mỗi check là 1 guard; mỗi lệnh install là idempotent tự nhiên.
+`install -d` chạy lại vẫn an toàn, user chỉ được tạo nếu còn thiếu, và `daemon-reload` chỉ chạy khi file unit thật sự đổi. Nhờ vậy lần chạy thứ hai mới là no-op đúng nghĩa nếu máy đã ở đúng trạng thái mong muốn.
 
 ## 5.
 ```sh
@@ -47,4 +57,10 @@ mv a.json a.json.swap
 mv b.json a.json
 mv a.json.swap b.json
 ```
-`mv` cùng filesystem là atomic. Caller hoặc thấy cặp cũ, hoặc thấy cặp mới — không bao giờ thấy file thiếu.
+Đây là cách đổi chỗ ngắn nhất trong thực tế, nhưng **không** atomic thật sự nếu xét cả cặp file. Mỗi lệnh `mv` riêng lẻ trên cùng filesystem là atomic, nhưng chuỗi ba bước này vẫn có trạng thái trung gian để caller nhìn thấy tên file mới/cũ lẫn lộn.
+
+Chỉ với bash + `mv` thì không có cách swap hai path hoàn toàn atomic. Muốn atomic ở mức tổng thể, bạn phải đổi giao diện, ví dụ:
+
+- dùng một symlink ổn định trỏ tới file versioned rồi thay symlink một cách atomic
+- đặt file vào một thư mục cha rồi swap cả thư mục bằng một lần rename
+- dùng tool hoặc filesystem primitive hỗ trợ exchange-style rename

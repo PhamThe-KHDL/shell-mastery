@@ -1,6 +1,6 @@
 # projects
 
-Real, tested, self-contained bash scripts. Not lesson material — read them like case studies once you've finished the `learn/` track.
+Real, tested, self-contained bash scripts. Not lesson material — read them like case studies once you've finished lesson 6 or whenever you want to see the early lessons applied end-to-end.
 
 Each project lives in its own folder with:
 
@@ -70,7 +70,7 @@ Run `./tools/lint-all.sh` and `bats tests/projects_my_thing.bats` before committ
 
 ## Ideas for projects to attempt
 
-If you've finished the lessons and want to practice on your own:
+If you've finished lesson 6 and want to practice on your own:
 
 - **`dotfiles-installer`** — idempotent, backs up existing configs before symlinking.
 - **`gh-repo-audit`** — clone every repo in a GitHub org, count lines by language, output CSV.

@@ -157,8 +157,10 @@ brew install gnu-sed coreutils gnu-tar findutils
 Chúng được cài dưới tên `gsed`, `gcp`, `gtar`, `gfind`. Test cả hai bên:
 ```sh
 gsed --version
-sed --version    # BSD
+printf 'x\n' >/tmp/sed-test && sed -i.bak 's/x/y/' /tmp/sed-test && cat /tmp/sed-test
 ```
+
+`sed` kiểu GNU thường có cờ `--version`; BSD `sed` thì thường không. Trên macOS/BSD, hãy kiểm tra bằng một phép sửa thật nho nhỏ thay vì chờ một cờ version không tồn tại.
 
 Nhờ vậy bạn viết được script chạy với cả hai và kiểm tra ngay lúc đang viết.
 

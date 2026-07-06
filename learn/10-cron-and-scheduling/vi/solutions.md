@@ -14,7 +14,7 @@ Năm trường đầu lần lượt là phút, giờ, ngày trong tháng, tháng
 #!/usr/bin/env bash
 set -euo pipefail
 
-PATH=/usr/local/bin:/usr/bin:/bin
+PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin
 export PATH
 
 echo "running with PATH=$PATH"
@@ -25,7 +25,7 @@ echo "running in $(pwd)"
 
 Điểm quan trọng không nằm ở lệnh `find` cụ thể, mà ở các sửa đổi sau:
 
-- tự đặt `PATH`
+- tự đặt `PATH`, gồm cả các thư mục package manager thật sự bạn đang dùng
 - ưu tiên absolute path cho external commands
 - in đủ ngữ cảnh để khi xem cron mail hoặc log bạn biết job đã chạy trong môi trường nào
 

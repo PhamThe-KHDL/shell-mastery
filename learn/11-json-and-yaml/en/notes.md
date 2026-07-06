@@ -98,6 +98,8 @@ For simple config lookups, `yq` feels a lot like `jq`:
 yq -r '.app.port' config.yml
 ```
 
+This lesson assumes the widely used `mikefarah/yq` v4 syntax. Other `yq` implementations exist, and their flags/expressions are not interchangeable.
+
 That is enough for a lot of shell automation where you need one or two config values and do not want a full language runtime.
 
 Be careful with YAML complexity:

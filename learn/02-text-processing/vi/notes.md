@@ -83,6 +83,8 @@ wc -l file                   # đếm dòng
 wc -c file                   # bytes
 ```
 
+Hãy xem `cut -d,` và `awk -F,` là tool cho text phân tách bằng dấu phẩy đơn giản, không phải parser CSV chuẩn RFC. Khi field có thể chứa dấu phẩy trong ngoặc kép, dấu `"` thật, hoặc newline bên trong, hãy chuyển sang CSV parser đúng nghĩa.
+
 ## 5. Pipeline thực tế
 
 "Top 10 IP theo số request trong access log":

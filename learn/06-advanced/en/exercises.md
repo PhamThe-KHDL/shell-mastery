@@ -2,6 +2,8 @@
 
 Try each on your own, then check [`solutions.md`](solutions.md).
 
+Note: exercises 1 and 4 require Bash 4+ (`declare -A`, `local -n`). Stock macOS Bash 3.2 will not run them unchanged.
+
 ## 1. Unique-preserving dedup
 Given a stream of lines, print each line only the first time it appears (preserve original order). Do it with an associative array — no `sort`.
 

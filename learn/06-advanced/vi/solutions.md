@@ -1,5 +1,7 @@
 # Lời giải 06 · Nâng cao
 
+Các lời giải này giả định Bash 4+ vì dùng associative array, `mapfile`, và nameref. Trên Bash 3.2 mặc định của macOS, bạn cần dùng Bash mới hơn trước.
+
 ## 1.
 ```sh
 declare -A seen

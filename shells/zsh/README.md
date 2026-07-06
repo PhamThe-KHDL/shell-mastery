@@ -28,7 +28,7 @@ Beginners: install oh-my-zsh, pick a theme (`robbyrussell` default is fine), the
 | `/etc/zlogin`, `~/.zlogin` | Login shell, after zshrc |
 | `~/.zlogout` | Logout |
 
-Put `PATH` and environment exports in `~/.zshenv`. Put aliases, prompt, plugins in `~/.zshrc`.
+Keep `~/.zshenv` minimal because zsh reads it for every invocation, including non-interactive ones such as remote commands. Put most `PATH` changes and login-only exports in `~/.zprofile`, and put aliases, prompt, and plugins in `~/.zshrc`.
 
 ## Where zsh scripts break vs bash
 

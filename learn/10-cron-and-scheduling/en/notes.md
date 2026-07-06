@@ -72,6 +72,16 @@ Cron is not the only scheduler:
 
 You do not need to master them now, but you should know they exist because they often give better logging and supervision than classic cron.
 
+## 6. Platform caveats
+
+This lesson uses classic cron because the mental model is widely useful, but schedulers vary by platform:
+
+- Linux commonly has `cron`, `crond`, and systemd timers.
+- macOS still has cron, but `launchd` is the platform-native scheduler.
+- `flock` is common on Linux and may be missing on macOS by default; if so, use another lock strategy rather than assuming it exists everywhere.
+
+The robust habit is not "memorize one scheduler." It is "make environment, logging, and overlap control explicit no matter which scheduler runs the script."
+
 ## Further reading
 - `projects/backup-tool` as a natural candidate for scheduled execution.
 - `ROADMAP.md` for future lock helpers such as `lib/lock.sh`.

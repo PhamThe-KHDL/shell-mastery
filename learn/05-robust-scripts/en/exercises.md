@@ -20,4 +20,4 @@ Add a `--dry-run` mode (default off) to a script. When on, print what would happ
 Write a script that creates `/opt/myapp` if missing, creates a user `myapp` if missing, and installs a systemd unit. Running it twice must be a no-op.
 
 ## 5. Atomic swap
-Two files `a.json` and `b.json` need to swap places atomically — no window where a caller sees one file missing. Bash + `mv` only.
+Two files `a.json` and `b.json` need to swap places. With only bash + `mv`, decide whether a truly atomic swap is possible. If not, explain why and show the safest approximation you can build.

@@ -30,7 +30,15 @@ tar -C "$tmp" -czf out.tar.gz .
 
 ## 3.
 ```sh
-xargs -P10 -I{} -a urls.txt curl -sI {} | grep -E '^HTTP/'
+xargs -P10 -n1 -I{} bash -c '
+    url=$1
+    if status=$(curl -sSI "$url" 2>/dev/null | sed -n "1s/\r$//p"); [[ -n $status ]]; then
+        printf "%s\n" "$status"
+    else
+        printf "curl failed for %s\n" "$url" >&2
+        exit 1
+    fi
+' _ {} < urls.txt
 ```
 
 ## 4.

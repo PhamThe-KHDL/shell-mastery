@@ -78,7 +78,7 @@ Chọn mức nào thì mọi thứ từ mức đó trở lên sẽ được báo
 
 ## Tích hợp vào CI
 
-File [`.github/workflows/build.yml`](../../../.github/workflows/build.yml) của repo này chạy `shellcheck` mỗi lần push. Bạn có thể bê nguyên mẫu:
+File [`.github/workflows/build.yml`](../../../.github/workflows/build.yml) của repo này chạy `shellcheck` trong build workflow cho pull request vào `main`, push lên `main`, và các lần chạy theo lịch/thủ công. Bạn có thể bê nguyên mẫu:
 
 ```yaml
 - name: Install shellcheck

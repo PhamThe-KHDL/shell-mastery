@@ -40,7 +40,9 @@ retry() {
     local attempt=1 delay=1
     local status
     while (( attempt <= max )); do
-        "$@" && return 0
+        if "$@"; then
+            return 0
+        fi
         status=$?
         (( attempt == max )) && return "$status"
         sleep "$delay"

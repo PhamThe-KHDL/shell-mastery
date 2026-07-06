@@ -1,5 +1,7 @@
 # Solutions 06 · Advanced
 
+These solutions assume Bash 4+ because they use associative arrays, `mapfile`, and namerefs. On stock macOS Bash 3.2, use a newer Bash first.
+
 ## 1.
 ```sh
 declare -A seen

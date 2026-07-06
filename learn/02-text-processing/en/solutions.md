@@ -15,6 +15,7 @@ awk '{print length($0)}' file | sort -n | uniq -c \
 ```sh
 awk -F, -v OFS=, 'NR==1 {print; next} {print $3, $2, $1}' file.csv
 ```
+This is fine for simple comma-delimited data. It is not a full CSV parser once fields may contain quoted commas or embedded newlines.
 
 ## 4.
 ```sh

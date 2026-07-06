@@ -98,6 +98,8 @@ Với lookup config đơn giản, `yq` hoạt động gần như `jq`:
 yq -r '.app.port' config.yml
 ```
 
+Bài này giả định cú pháp `mikefarah/yq` v4, là bản được dùng phổ biến hiện nay. Ngoài kia vẫn có các implementation `yq` khác, và flag/filter của chúng không dùng lẫn cho nhau được.
+
 Như vậy là đủ cho rất nhiều automation shell khi bạn chỉ cần 1-2 giá trị config chứ chưa muốn kéo cả runtime lớn hơn vào.
 
 Nhưng YAML có vài góc cạnh cần cẩn thận:

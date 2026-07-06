@@ -77,7 +77,7 @@ Real-time squiggles beat batch runs. Set this up once and forget:
 
 ## CI integration
 
-This repo's [`.github/workflows/build.yml`](../../../.github/workflows/build.yml) runs shellcheck on every push. Copy the pattern:
+This repo's [`.github/workflows/build.yml`](../../../.github/workflows/build.yml) runs shellcheck in the build workflow for pull requests to `main`, pushes to `main`, and scheduled/manual runs. Copy the pattern:
 
 ```yaml
 - name: Install shellcheck

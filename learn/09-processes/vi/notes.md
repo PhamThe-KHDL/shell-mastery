@@ -66,6 +66,17 @@ Và khi process hành xử kỳ lạ:
 
 Bạn chưa cần nhớ hết flag ngay lúc này; chỉ cần biết mỗi tool trả lời kiểu câu hỏi nào.
 
+## 6. Lưu ý về khác biệt nền tảng
+
+Tool liên quan đến process là một trong những vùng kém portable nhất của shell:
+
+- output của `ps` khác nhau giữa Linux, macOS, và BSD
+- `lsof` khá phổ biến ở cả Linux lẫn macOS, nhưng option vẫn có khác biệt
+- `strace` và `ionice` là tool của Linux; trên macOS bạn thường phải dùng `dtruss`, `fs_usage`, hoặc Activity Monitor
+- `systemctl` không nằm trong hộp đồ nghề của bài này vì nó không có trên macOS và nhiều hệ không dùng systemd
+
+Hãy viết script xoay quanh những câu hỏi portable trước: "mình cần PID nào?", "process đã thoát chưa?", và "mình có thể wait/cleanup nó gọn không?" Chỉ rẽ sang helper riêng theo nền tảng khi thật sự cần.
+
 ## Đọc thêm
 - Xem lại `04-io-and-processes` để ôn nền tảng jobs và traps.
 - Đọc `projects/` để thấy script cleanup khi exit.

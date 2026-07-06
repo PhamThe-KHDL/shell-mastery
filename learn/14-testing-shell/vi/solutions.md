@@ -25,7 +25,7 @@ SCRIPT="./projects/backup-tool/backup.sh"
 @test "missing --source exits 2" {
     run "$SCRIPT" --dest /tmp/out
     [ "$status" -eq 2 ]
-    [[ "$output" == *"--source is required"* ]]
+    [[ "$output" == *"Usage:"* ]]
 }
 ```
 

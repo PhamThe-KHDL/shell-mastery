@@ -96,11 +96,11 @@ Update the emoji per lesson as you go. If the repo is your fork, commit it — y
 
 Read these when the lesson calls them out — not in advance, not all at once:
 
-- [topics/quoting](../topics/quoting/en/README.md) — quoting and word splitting. Referenced from lesson 1; deeper questions arise in 3–6.
-- [topics/shellcheck](../topics/shellcheck/en/README.md) — how to read shellcheck warnings. Start using shellcheck from lesson 3.
-- [topics/debugging](../topics/debugging/en/README.md) — `set -x`, `PS4`, `trap ERR`. First useful in lesson 4.
-- [topics/portability](../topics/portability/en/README.md) — bash vs POSIX vs BSD tools. Relevant when your scripts need to run on servers or Alpine containers.
-- [topics/performance](../topics/performance/en/README.md) — when shell is slow, when to switch to `awk`/Python. Read after lesson 4.
+- `topics/quoting` — [en](../topics/quoting/en/README.md) · [vi](../topics/quoting/vi/README.md) — quoting and word splitting. Referenced from lesson 1; deeper questions arise in 3–6.
+- `topics/shellcheck` — [en](../topics/shellcheck/en/README.md) · [vi](../topics/shellcheck/vi/README.md) — how to read shellcheck warnings. Start using shellcheck from lesson 3.
+- `topics/debugging` — [en](../topics/debugging/en/README.md) · [vi](../topics/debugging/vi/README.md) — `set -x`, `PS4`, `trap ERR`. First useful in lesson 4.
+- `topics/portability` — [en](../topics/portability/en/README.md) · [vi](../topics/portability/vi/README.md) — bash vs POSIX vs BSD tools. Relevant when your scripts need to run on servers or Alpine containers.
+- `topics/performance` — [en](../topics/performance/en/README.md) · [vi](../topics/performance/vi/README.md) — when shell is slow, when to switch to `awk`/Python. Read after lesson 4.
 
 ## After the core path
 

@@ -83,6 +83,8 @@ wc -l file                   # count lines
 wc -c file                   # bytes
 ```
 
+Treat `cut -d,` and `awk -F,` as tools for simple comma-delimited text, not full RFC-style CSV. Once fields may contain quoted commas, quotes, or embedded newlines, switch to a real CSV parser.
+
 ## 5. A real pipeline
 
 "Top 10 IPs by request count in an access log":

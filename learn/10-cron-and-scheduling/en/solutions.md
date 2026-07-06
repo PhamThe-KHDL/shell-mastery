@@ -14,7 +14,7 @@ The first five fields are minute, hour, day-of-month, month, day-of-week. The co
 #!/usr/bin/env bash
 set -euo pipefail
 
-PATH=/usr/local/bin:/usr/bin:/bin
+PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin
 export PATH
 
 echo "running with PATH=$PATH"
@@ -25,7 +25,7 @@ echo "running in $(pwd)"
 
 The exact command does not matter much. The important fixes are:
 
-- set `PATH` deliberately
+- set `PATH` deliberately, including your real package-manager locations
 - call external programs by absolute path when practical
 - print enough context that cron mail or logs tell you what environment the job saw
 

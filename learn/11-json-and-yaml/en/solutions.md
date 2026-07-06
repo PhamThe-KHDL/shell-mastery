@@ -24,4 +24,4 @@ The important choice is `while IFS= read -r`, not `for url in $(...)`. The loop 
 yq -r '.app.port' config.yml
 ```
 
-This is the same basic pattern as `jq`: point at the nested field you want and print it in raw form for the surrounding shell script to use.
+This is the same basic pattern as `jq`: point at the nested field you want and print it in raw form for the surrounding shell script to use. The example assumes `mikefarah/yq` v4 syntax.

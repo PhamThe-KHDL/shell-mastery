@@ -20,4 +20,4 @@ Thêm chế độ `--dry-run` (mặc định off) vào 1 script. Khi on, in ra s
 Viết script tạo `/opt/myapp` nếu chưa có, tạo user `myapp` nếu chưa có, cài systemd unit. Chạy 2 lần phải no-op.
 
 ## 5. Atomic swap
-2 file `a.json` và `b.json` cần đổi chỗ atomic — không có khoảnh khắc nào caller thấy 1 file thiếu. Chỉ bash + `mv`.
+2 file `a.json` và `b.json` cần đổi chỗ. Chỉ với bash + `mv`, hãy quyết định xem có làm atomic thật sự được không. Nếu không, giải thích vì sao và đưa ra cách gần đúng an toàn nhất.

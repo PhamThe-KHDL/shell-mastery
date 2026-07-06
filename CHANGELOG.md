@@ -29,7 +29,7 @@ Unreleased work lives at the top under `## [Unreleased]` and moves down when a v
 ### Changed
 - `README.md` now explains the real testing contract more precisely: `lib/` and `projects/` are bats-tested, while `learn/` examples and `snippets/` stay lightweight.
 - `README.md` and `tools/README.md` now document the macOS Bash 4+/PATH setup explicitly.
-- `README.md`, `learn/INDEX.md`, and `ROADMAP.md` now show lessons 7-14 as in-repo material rather than future roadmap items only, and describe them more precisely as usable lessons that still need polish rather than empty templates.
+- `README.md`, `learn/INDEX.md`, and `ROADMAP.md` now show lessons 7-14 as shipped in-repo material rather than future roadmap items or empty templates.
 - `README.md`, `learn/INDEX.md`, `ROADMAP.md`, and section READMEs now reflect the current repo state more accurately: all 14 lessons are present in-repo, and the roadmap focuses on deepening and extension work rather than merely creating missing lessons.
 - The new lessons' example directories now contain real topic-specific scripts instead of generic placeholder stubs.
 - `projects/log-analyzer/README.md` and `projects/README.md` now point readers at checked-in fixture data for a faster first run.
@@ -45,7 +45,7 @@ Unreleased work lives at the top under `## [Unreleased]` and moves down when a v
 
 ## [0.0.1] — 2026-07-06
 
-Initial public version. The full 6-lesson curriculum, cross-cutting topics, cheatsheets, shell comparisons, two real projects, a sourceable library, and CI. Everything English-first with parallel Vietnamese notes in `learn/`.
+Initial public version. The full 6-lesson curriculum, cross-cutting topics, cheatsheets, shell comparisons, two real projects, four sourceable libraries, and CI. Everything English-first with parallel Vietnamese notes in `learn/`.
 
 ### Added — Structure & tooling
 
@@ -64,7 +64,7 @@ Initial public version. The full 6-lesson curriculum, cross-cutting topics, chea
 - **`tools/check-deps.sh`** — verifies bash 4+, shellcheck, bats, shfmt.
 - **`.editorconfig`** — 4-space indent for `.sh`, 2-space for `.md`/`.yml`.
 - **`.gitignore`** — `.DS_Store`, `*.log`, temp dirs, `scratch/`.
-- **`.github/workflows/build.yml`** — CI runs `shellcheck` (lint job) + `bats` (test job) + `actionlint` on push, PR, weekly cron, and `workflow_dispatch`. Follows MarketDataX conventions (concurrency groups, timeouts, minimal permissions).
+- **`.github/workflows/build.yml`** — CI runs `shellcheck` (lint job) + `bats` (test job) + `actionlint` on pushes to `main`, pull requests to `main`, weekly cron, and `workflow_dispatch`. Follows MarketDataX conventions (concurrency groups, timeouts, minimal permissions).
 - **`.github/workflows/release.yml`** — creates a GitHub Release on `v*.*.*` tag push, with auto-generated notes.
 
 ### Added — Learning content (6 lessons, bilingual)

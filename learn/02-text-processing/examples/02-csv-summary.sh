@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Summarize a CSV: total, average, and max of the 2nd numeric column.
-# Assumes a header row.
+# Summarize a simple comma-delimited file: total, average, and max of the 2nd numeric column.
+# Assumes a header row and no quoted commas/newlines inside fields.
 # Usage: ./02-csv-summary.sh data.csv
 
 if [[ $# -ne 1 ]]; then

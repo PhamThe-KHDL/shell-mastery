@@ -66,6 +66,17 @@ And if a process behaves mysteriously:
 
 You do not need every flag now; just know these tools exist and what question each one answers.
 
+## 6. Platform caveats
+
+Process tooling is one of the least portable parts of shell work:
+
+- `ps` output differs between Linux, macOS, and BSD.
+- `lsof` is common on both Linux and macOS, but options still vary.
+- `strace` and `ionice` are Linux tools; on macOS you may reach for `dtruss`, `fs_usage`, or Activity Monitor instead.
+- `systemctl` is not part of this lesson's toolbox because it does not exist on macOS and many non-systemd systems.
+
+Write scripts around the portable questions first: "what PID do I need?", "did it exit?", and "can I wait for it cleanly?" Then branch into platform-specific helpers only when you truly need them.
+
 ## Further reading
 - `04-io-and-processes` for the earlier foundation on jobs and traps.
 - `projects/` for examples of scripts that clean up on exit.

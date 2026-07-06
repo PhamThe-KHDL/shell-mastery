@@ -42,7 +42,7 @@ Bẫy kinh điển: `cmd 2>&1 > out` **không** gộp stderr vào file — thứ
 ps aux | grep nginx | awk '{print $2}'
 ```
 
-Pipe nối stdout của lệnh trái vào stdin của lệnh phải. Mỗi lệnh chạy trong **subshell riêng** — biến gán trong pipe không tồn tại sau đó (bài 04).
+Pipe nối stdout của lệnh trái vào stdin của lệnh phải. Trong cách dùng bash thông thường, mỗi thành phần của pipeline chạy trong subshell riêng nên biến gán trong pipe sẽ không còn sau đó. Bài 04 sẽ nói về ngoại lệ `lastpipe`.
 
 ## 4. Quoting — phần quan trọng nhất bài này
 

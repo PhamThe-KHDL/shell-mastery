@@ -4,7 +4,7 @@
 
 **A structured learning repository for Unix shell — bilingual notes, runnable examples, tested libraries, and real projects, from `ls` to `set -euo pipefail`.**
 
-Fourteen shipped lessons in total, plus five deep-dive topics, seven cheatsheets, four shell comparisons, two real-world projects, and a sourceable library — everything shellcheck-clean, tested where behavior is stable, and CI-verified.
+Fourteen shipped lessons in total, plus five deep-dive topics, seven cheatsheets, four shell comparisons, two real-world projects, and four sourceable libraries — everything shellcheck-clean, tested where behavior is stable, and CI-checked for shell code and tests.
 
 ![version](https://img.shields.io/badge/version-0.0.1-blue?style=flat-square) ![bash](https://img.shields.io/badge/bash-4.0+-4EAA25?style=flat-square&logo=gnubash&logoColor=white) ![shellcheck](https://img.shields.io/badge/shellcheck-clean-00A651?style=flat-square) ![bats](https://img.shields.io/badge/tests-bats--core-8E44AD?style=flat-square) ![languages](https://img.shields.io/badge/prose-en_+_vi-DC382D?style=flat-square) ![scope](https://img.shields.io/badge/scope-open--source-555555?style=flat-square)
 
@@ -48,7 +48,7 @@ Shell Mastery is built around five principles:
 1. **Learner-first, not reference-dump** — content is chosen for someone working sequentially through the curriculum, not for exhaustive coverage.
 2. **Every stable interface has a test** — `lib/` and `projects/` are bats-tested; lesson examples stay small and readable, and `snippets/` remain copy-paste templates.
 3. **Bilingual prose in `learn/` and `topics/`, both via `en/` + `vi/` subfolders** — code, comments, and cheatsheets stay English-only and don't fork across languages.
-4. **CI is the enforcer** — shellcheck-clean and bats-green are hard gates, not aspirations.
+4. **CI enforces the code-facing checks** — shellcheck-clean and bats-green are hard gates for shell code paths, while docs still rely on human review.
 5. **Depth beats velocity** — one well-tested lesson beats three rushed lessons.
 
 ---
@@ -80,7 +80,7 @@ All fourteen lessons are present in-tree with notes, exercises, solutions, and r
 
 ## 🧩 Projects
 
-End-to-end case studies. Read them after finishing the lessons — each demonstrates skills from at least three lessons, ships with a full bats suite, and follows every convention this repo enforces.
+End-to-end case studies. Read them once you finish lesson 6 or whenever you want a concrete case study — each demonstrates skills from at least three lessons, ships with a full bats suite, and follows every convention this repo enforces.
 
 | Project | Purpose | Skills demonstrated | Status |
 | --- | --- | --- | --- |
@@ -117,7 +117,7 @@ graph TD
             L12[12-dates-and-times]
             L13[13-networking-2]
             L14[14-testing-shell]
-            L7 --> L13
+            L7 --> L8 --> L9 --> L10 --> L11 --> L12 --> L13 --> L14
         end
         L6 --> applied
     end

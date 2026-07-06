@@ -157,8 +157,10 @@ brew install gnu-sed coreutils gnu-tar findutils
 They install as `gsed`, `gcp`, `gtar`, `gfind`. Test both:
 ```sh
 gsed --version
-sed --version    # BSD
+printf 'x\n' >/tmp/sed-test && sed -i.bak 's/x/y/' /tmp/sed-test && cat /tmp/sed-test
 ```
+
+GNU `sed` advertises itself with `--version`; BSD `sed` usually does not. For BSD/macOS, verify behavior with a tiny real edit instead of expecting a version flag.
 
 Now you can write scripts that work with either, and verify at write time.
 

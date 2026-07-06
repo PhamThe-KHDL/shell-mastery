@@ -24,4 +24,4 @@ done
 yq -r '.app.port' config.yml
 ```
 
-Đây chính là pattern tương tự `jq`: trỏ vào nested field cần lấy rồi in ở dạng raw để shell script xung quanh sử dụng.
+Đây chính là pattern tương tự `jq`: trỏ vào nested field cần lấy rồi in ở dạng raw để shell script xung quanh sử dụng. Ví dụ này giả định cú pháp `mikefarah/yq` v4.

@@ -72,6 +72,16 @@ Cron không phải scheduler duy nhất:
 
 Bạn chưa cần master chúng ngay, nhưng nên biết chúng tồn tại vì nhiều khi logging và supervision tốt hơn cron cổ điển.
 
+## 6. Lưu ý về khác biệt nền tảng
+
+Bài này dùng cron cổ điển vì mental model của nó hữu ích ở rất nhiều nơi, nhưng scheduler thật sự sẽ khác theo nền tảng:
+
+- Linux thường có `cron`, `crond`, và systemd timers
+- macOS vẫn có cron, nhưng `launchd` mới là scheduler bản địa
+- `flock` phổ biến trên Linux nhưng có thể không có sẵn trên macOS; khi đó hãy chọn chiến lược lock khác thay vì giả định nó luôn tồn tại
+
+Thói quen robust không phải là "thuộc một scheduler duy nhất", mà là "dù scheduler nào chạy script thì environment, logging, và chống overlap vẫn phải được khai báo rõ ràng".
+
 ## Đọc thêm
 - `projects/backup-tool` là ứng viên tự nhiên để chạy theo lịch.
 - Xem `ROADMAP.md` cho helper tương lai như `lib/lock.sh`.

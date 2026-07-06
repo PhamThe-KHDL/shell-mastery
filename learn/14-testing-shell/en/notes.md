@@ -84,4 +84,4 @@ At that point, Python `pytest` plus `subprocess` is usually the better tool.
 
 ## Further reading
 - `tests/README.md` — the applied in-repo companion to this lesson, with worked examples from the actual test suite.
-- `projects/` test files as worked examples you can read right now.
+- `tests/` — especially `tests/projects_backup_tool.bats` and `tests/lib_strings.bats` — as worked examples you can read right now.

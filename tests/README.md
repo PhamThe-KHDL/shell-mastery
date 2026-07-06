@@ -45,13 +45,13 @@ bats tests/
 bats tests/lib_retry.bats
 
 # Run one test (by name pattern)
-bats tests/lib_retry.bats -f "exponential"
+bats tests/lib_retry.bats -f "succeeds on second attempt"
 
-# Verbose — print each test before it runs
+# TAP output (machine-readable)
 bats -t tests/
 ```
 
-Exit code is 0 if all tests pass, non-zero otherwise. CI runs the full suite on every push.
+Exit code is 0 if all tests pass, non-zero otherwise. The build workflow runs the full suite on pull requests to `main`, pushes to `main`, and scheduled/manual runs.
 
 ## Reading a bats file
 

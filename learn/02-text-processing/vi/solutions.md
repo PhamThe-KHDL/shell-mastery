@@ -15,6 +15,7 @@ awk '{print length($0)}' file | sort -n | uniq -c \
 ```sh
 awk -F, -v OFS=, 'NR==1 {print; next} {print $3, $2, $1}' file.csv
 ```
+Cách này ổn với dữ liệu phân tách bằng dấu phẩy đơn giản. Nó không còn là parser CSV đầy đủ nếu field có dấu phẩy trong ngoặc kép hoặc newline bên trong.
 
 ## 4.
 ```sh

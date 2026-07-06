@@ -42,7 +42,7 @@ Classic pitfall: `cmd 2>&1 > out` does **not** send stderr to the file. Redirect
 ps aux | grep nginx | awk '{print $2}'
 ```
 
-A pipe wires the stdout of the left command into the stdin of the right. Each command runs in its own **subshell** — variables assigned inside a pipe do not persist after it (covered in lesson 04).
+A pipe wires the stdout of the left command into the stdin of the right. In normal bash usage, each pipeline component runs in its own subshell, so variables assigned inside a pipe do not persist after it. Lesson 04 covers the `lastpipe` exception.
 
 ## 4. Quoting — the important part
 

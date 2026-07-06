@@ -34,12 +34,22 @@ run systemctl restart myapp
 
 ## 4.
 ```sh
-[[ -d /opt/myapp ]] || mkdir -p /opt/myapp
-id -u myapp &>/dev/null || useradd --system myapp
-install -m0644 myapp.service /etc/systemd/system/myapp.service
-systemctl daemon-reload
+#!/usr/bin/env bash
+set -euo pipefail
+
+install -d -m0755 /opt/myapp
+
+if ! id -u myapp >/dev/null 2>&1; then
+    useradd --system --home /opt/myapp --shell /usr/sbin/nologin myapp
+fi
+
+unit=/etc/systemd/system/myapp.service
+if ! cmp -s myapp.service "$unit"; then
+    install -m0644 myapp.service "$unit"
+    systemctl daemon-reload
+fi
 ```
-Each check is a guard; each install command is idempotent by nature.
+`install -d` is safe to rerun, the user is only created if missing, and `daemon-reload` only runs when the unit file actually changed. That makes the second run a real no-op when the machine is already in the desired state.
 
 ## 5.
 ```sh
@@ -47,4 +57,10 @@ mv a.json a.json.swap
 mv b.json a.json
 mv a.json.swap b.json
 ```
-`mv` on the same filesystem is atomic. Callers either see the old pair or the new pair — never a missing file.
+This is the shortest practical swap, but it is **not** truly atomic as a pair. Each individual same-filesystem `mv` is atomic, yet the three-step sequence still has intermediate states where callers can observe partially swapped names.
+
+With only bash + `mv`, a true two-path atomic swap is not available. To make the overall operation atomic, you need a different interface such as:
+
+- one stable symlink that points at versioned files, then atomically replace the symlink target
+- one parent directory that gets swapped with a single rename
+- a tool or filesystem primitive that supports exchange-style renames

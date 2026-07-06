@@ -1,8 +1,8 @@
 # topics
 
-Cross-cutting reference material. Unlike `learn/` (linear course) or `cheatsheets/` (quick lookup), these are **deep dives** on subjects that touch every lesson.
+Cross-cutting reference material. Unlike `learn/` (linear course) or `cheatsheets/` (quick lookup), these are **deep dives** on subjects that touch many lessons.
 
-Read them **when the lessons call them out** — not in advance, not all at once. Each is 200–400 lines of practical explanation with examples.
+Read them when a lesson or repo task points you here, or when you hit the exact symptom named in the table below. They are meant to be substantial practical references, not tiny glossaries.
 
 Each topic ships in both languages under `en/` and `vi/` subfolders (same shape as `learn/`). The `en` / `vi` links in the table below point at each.
 
