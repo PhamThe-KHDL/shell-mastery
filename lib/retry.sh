@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# lib/retry.sh — retry với exponential backoff.
+# lib/retry.sh — retry with exponential backoff.
 # Usage: retry <max_attempts> <initial_delay> <cmd> [args...]
-# Ví dụ:  retry 5 1 curl -fsS https://example.com
+# Example: retry 5 1 curl -fsS https://example.com
 
 retry() {
     local max=$1 delay=$2

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# lib/logger.sh — logger tối giản có level và màu.
+# lib/logger.sh — minimal logger with levels and color.
 # Source: `. lib/logger.sh`
-# Level qua env: LOG_LEVEL=debug|info|warn|error (mặc định info).
+# Level via env: LOG_LEVEL=debug|info|warn|error (default info).
 
 _log_level_num() {
     case ${1:-info} in
