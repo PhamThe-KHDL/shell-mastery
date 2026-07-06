@@ -29,6 +29,8 @@ Checking tools:
 
 Exit code is 1 if any required tool is missing, 0 otherwise — safe to gate other scripts on it. `shfmt` is reported as optional and does not fail the check.
 
+On macOS, a common gotcha is installing modern Bash with Homebrew but still having `which bash` point at `/bin/bash`. If `check-deps.sh` warns that your Bash is too old, see the Bash setup section in the top-level [`README.md`](../README.md).
+
 ### new-lesson.sh
 
 ```sh

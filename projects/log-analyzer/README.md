@@ -39,6 +39,11 @@ Analyze a plain log:
 ./analyze.sh /var/log/nginx/access.log
 ```
 
+Analyze the checked-in sample fixture so you can see expected behavior immediately:
+```sh
+./analyze.sh ../../tests/fixtures/log-analyzer.sample.log
+```
+
 Analyze a compressed log without unpacking to disk:
 ```sh
 zcat /var/log/nginx/access.log.1.gz | ./analyze.sh
@@ -123,7 +128,7 @@ The script doesn't fail on an empty log — it prints `total requests: 0` and em
 bats tests/projects_log_analyzer.bats
 ```
 
-Covers: totals, uniques, top-client accuracy, 5xx section, stdin mode, `-n` validation.
+Covers: totals, uniques, top-client accuracy, 5xx section, stdin mode, `-n` validation. The test fixture also lives in-tree at [`tests/fixtures/log-analyzer.sample.log`](../../tests/fixtures/log-analyzer.sample.log) so readers can run the project without needing a real web-server log first.
 
 ## Try breaking it
 

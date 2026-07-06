@@ -4,7 +4,7 @@
 
 **A structured learning repository for Unix shell — bilingual notes, runnable examples, tested libraries, and real projects, from `ls` to `set -euo pipefail`.**
 
-Six progressive lessons, five deep-dive topics, seven cheatsheets, four shell comparisons, two real-world projects, and a sourceable library — everything shellcheck-clean, everything bats-tested, everything CI-verified.
+Six progressive lessons, five deep-dive topics, seven cheatsheets, four shell comparisons, two real-world projects, and a sourceable library — everything shellcheck-clean, tested where behavior is stable, and CI-verified.
 
 ![version](https://img.shields.io/badge/version-0.0.1-blue?style=flat-square) ![bash](https://img.shields.io/badge/bash-4.0+-4EAA25?style=flat-square&logo=gnubash&logoColor=white) ![shellcheck](https://img.shields.io/badge/shellcheck-clean-00A651?style=flat-square) ![bats](https://img.shields.io/badge/tests-bats--core-8E44AD?style=flat-square) ![languages](https://img.shields.io/badge/prose-en_+_vi-DC382D?style=flat-square) ![scope](https://img.shields.io/badge/scope-open--source-555555?style=flat-square)
 
@@ -46,7 +46,7 @@ If you're already fluent in all six, this repo is not for you — see [`resource
 Shell Mastery is built around five principles:
 
 1. **Learner-first, not reference-dump** — content is chosen for someone working sequentially through the curriculum, not for exhaustive coverage.
-2. **Every runnable script has a test** — if it can't be tested, it belongs in `snippets/`, not `lib/` or `projects/`.
+2. **Every stable interface has a test** — `lib/` and `projects/` are bats-tested; lesson examples stay small and readable, and `snippets/` remain copy-paste templates.
 3. **Bilingual prose (`en/` + `vi/`) in `learn/`, English everywhere else** — code, comments, topics, and cheatsheets don't fork across languages.
 4. **CI is the enforcer** — shellcheck-clean and bats-green are hard gates, not aspirations.
 5. **Depth beats velocity** — one well-tested lesson beats three drafts.
@@ -139,6 +139,28 @@ brew install bash                          # macOS
 sudo apt install bash                      # already there on most Linux
 ```
 
+On macOS, verify that your shell is actually finding the Homebrew Bash rather than `/bin/bash`:
+
+```sh
+which bash
+bash --version
+```
+
+Expected output:
+
+```sh
+/opt/homebrew/bin/bash
+GNU bash, version 5.x
+```
+
+If `which bash` still prints `/bin/bash`, put Homebrew first in your startup config and restart your shell:
+
+```sh
+echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zprofile
+exec zsh
+which bash
+```
+
 Recommended tooling (also required to run tests locally):
 
 ```sh
@@ -217,7 +239,7 @@ Everything is documented in-tree. Each folder has its own `README.md`.
 
 ## 🛡️ Conventions
 
-Every script in this repo — examples, snippets, projects, tools — follows these rules. Adopt them in your own work:
+Every shell script in this repo — examples, snippets, projects, tools — follows these rules. Adopt them in your own work:
 
 ```sh
 #!/usr/bin/env bash          # portable shebang
@@ -225,7 +247,7 @@ set -euo pipefail            # fail loud on errors, unset vars, pipe failures
 IFS=$'\n\t'                  # (in robust scripts) don't split on spaces
 ```
 
-- **Every runnable script has a bats test**, mirrored under `tests/`.
+- **Every `lib/` and `projects/` entry has a bats test**, mirrored under `tests/`. `learn/` examples are intentionally lightweight and `snippets/` are templates, not stable interfaces.
 - **shellcheck must pass** at `--severity=warning`. `# shellcheck disable=...` requires a comment explaining why.
 - **Commits reference the lesson**: `feat(learn/02): add sed portability example` or `fix(projects/backup-tool): atomic mv on same fs`.
 - **Prose is bilingual (`en/` + `vi/`) in `learn/` only**. Everything else stays English.
@@ -250,13 +272,15 @@ Full details, non-goals, and how prioritization works: [`ROADMAP.md`](ROADMAP.md
 
 ## 🤝 Contributing
 
-- **Typos or broken examples** → PR straight to `main`.
-- **New lesson** → `./tools/new-lesson.sh <slug>`, fill both `en/` and `vi/`, add a row to [`learn/INDEX.md`](learn/INDEX.md).
-- **New project** → put it under `projects/<name>/` (self-contained README) with tests at `tests/projects_<name>.bats`.
-- **New library** → must have a bats test file under `tests/lib_<name>.bats` before merging.
-- **New topic** → deep-dive prose only. Cheatsheets belong under `cheatsheets/`.
+Start with [`CONTRIBUTING.md`](CONTRIBUTING.md). It explains:
 
-Before opening a PR, run:
+- what belongs in each top-level folder
+- what must be tested
+- how to add a lesson, project, library, or topic
+- what to run before opening a PR
+- how to keep docs, tests, and behavior in sync
+
+Fast path:
 
 ```sh
 ./tools/lint-all.sh

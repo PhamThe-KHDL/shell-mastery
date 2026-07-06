@@ -18,7 +18,7 @@ Each project lives in its own folder with:
 ## How to read a project
 
 1. **Read the README first.** Understand what problem it solves and how it's used.
-2. **Run it on the fixture data** (the tests are a good source of realistic inputs).
+2. **Run it on the fixture data** (checked-in fixtures live under `tests/fixtures/` when a project benefits from realistic sample input).
 3. **Read the script from bottom to top.** Real scripts often make more sense in reverse — you see the final action, then trace back to how it was prepared.
 4. **Look for the safety features.** Where does it validate input? Where does it clean up? What does it do when someone hits Ctrl-C halfway?
 5. **Read the tests.** They document intended behavior more precisely than prose.

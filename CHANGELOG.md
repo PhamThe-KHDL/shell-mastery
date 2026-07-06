@@ -19,13 +19,21 @@ Unreleased work lives at the top under `## [Unreleased]` and moves down when a v
 ## [Unreleased]
 
 ### Added
-- (nothing yet)
+- `CONTRIBUTING.md` with folder-by-folder contribution rules, PR checklist, and explicit macOS Bash setup guidance.
+- `tests/fixtures/log-analyzer.sample.log` so readers can run `projects/log-analyzer` without needing their own web-server log.
+- `tests/lib_tempdir.bats` to pin down `lib/tempdir.sh` EXIT-trap behavior.
 
 ### Changed
-- (nothing yet)
+- `README.md` now explains the real testing contract more precisely: `lib/` and `projects/` are bats-tested, while `learn/` examples and `snippets/` stay lightweight.
+- `README.md` and `tools/README.md` now document the macOS Bash 4+/PATH setup explicitly.
+- `projects/log-analyzer/README.md` and `projects/README.md` now point readers at checked-in fixture data for a faster first run.
+- `tests/projects_log_analyzer.bats` now uses the checked-in fixture file instead of embedding sample input inline.
 
 ### Fixed
-- (nothing yet)
+- `tools/check-deps.sh` now enforces the Bash 4+ requirement while treating `shfmt` as optional.
+- `projects/backup-tool/backup.sh` now returns exit code `2` for missing option values and supports `--flag=value` syntax.
+- `lib/tempdir.sh` now preserves an existing EXIT trap when sourced.
+- `tests/lib_retry.bats` now uses ASCII test names so Bats does not skip tests on macOS/Bash combinations.
 
 ---
 

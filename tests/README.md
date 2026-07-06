@@ -15,6 +15,8 @@ The layout **mirrors** the source path so any file is one grep away from its tes
 
 Slashes in the source path become underscores in the test filename.
 
+`learn/` examples and `snippets/` are intentionally not mirrored here: lesson examples optimize for teaching one idea at a time, and snippets are copy-paste templates rather than stable interfaces.
+
 ## Prerequisites
 
 ```sh

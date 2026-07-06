@@ -1,16 +1,11 @@
 #!/usr/bin/env bats
 
 ANALYZE=projects/log-analyzer/analyze.sh
+FIXTURE=tests/fixtures/log-analyzer.sample.log
 
 setup() {
     log=$(mktemp)
-    cat > "$log" <<'EOF'
-10.0.0.1 - - [10/Oct/2024:13:55:36 +0000] "GET /index.html HTTP/1.1" 200 512 "-" "curl/8"
-10.0.0.1 - - [10/Oct/2024:13:55:37 +0000] "GET /about HTTP/1.1" 200 400 "-" "curl/8"
-10.0.0.2 - - [10/Oct/2024:13:55:38 +0000] "GET /index.html HTTP/1.1" 404 100 "-" "curl/8"
-10.0.0.3 - - [10/Oct/2024:13:55:39 +0000] "POST /api/x HTTP/1.1" 500 100 "-" "curl/8"
-10.0.0.3 - - [10/Oct/2024:13:55:40 +0000] "POST /api/x HTTP/1.1" 500 100 "-" "curl/8"
-EOF
+    cp "$FIXTURE" "$log"
 }
 
 teardown() {
