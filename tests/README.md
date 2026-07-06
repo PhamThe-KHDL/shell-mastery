@@ -9,6 +9,7 @@ The layout **mirrors** the source path so any file is one grep away from its tes
 | `lib/logger.sh`                    | `tests/lib_logger.bats` |
 | `lib/retry.sh`                     | `tests/lib_retry.bats` |
 | `lib/strings.sh`                   | `tests/lib_strings.bats` |
+| `lib/tempdir.sh`                   | `tests/lib_tempdir.bats` |
 | `projects/backup-tool/backup.sh`   | `tests/projects_backup_tool.bats` |
 | `projects/log-analyzer/analyze.sh` | `tests/projects_log_analyzer.bats` |
 

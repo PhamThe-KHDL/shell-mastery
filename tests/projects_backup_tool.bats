@@ -19,11 +19,21 @@ teardown() {
     [ "$status" -eq 2 ]
 }
 
+@test "missing option value: exit 2" {
+    run "$BACKUP" -s
+    [ "$status" -eq 2 ]
+}
+
 @test "runs and creates one archive" {
     run "$BACKUP" -s "$src" -d "$dest" -n mybak
     [ "$status" -eq 0 ]
     n=$(find "$dest" -maxdepth 1 -name 'mybak-*.tar.gz' | wc -l | tr -d ' ')
     [ "$n" -eq 1 ]
+}
+
+@test "supports --flag=value syntax" {
+    run "$BACKUP" --source="$src" --dest="$dest" --name=mybak
+    [ "$status" -eq 0 ]
 }
 
 @test "archive contains the source files" {

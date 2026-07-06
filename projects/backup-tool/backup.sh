@@ -22,12 +22,23 @@ name=""
 keep=5
 dry_run=0
 
+require_value() {
+    [[ $# -ge 2 && -n ${2:-} ]] || {
+        echo "Missing value for $1" >&2
+        usage
+    }
+}
+
 while [[ $# -gt 0 ]]; do
     case $1 in
-        -s|--source) source=$2; shift 2 ;;
-        -d|--dest)   dest=$2;   shift 2 ;;
-        -n|--name)   name=$2;   shift 2 ;;
-        -k|--keep)   keep=$2;   shift 2 ;;
+        --source=*) source=${1#--source=}; shift ;;
+        --dest=*)   dest=${1#--dest=};     shift ;;
+        --name=*)   name=${1#--name=};     shift ;;
+        --keep=*)   keep=${1#--keep=};     shift ;;
+        -s|--source) require_value "$1" "${2-}"; source=$2; shift 2 ;;
+        -d|--dest)   require_value "$1" "${2-}"; dest=$2;   shift 2 ;;
+        -n|--name)   require_value "$1" "${2-}"; name=$2;   shift 2 ;;
+        -k|--keep)   require_value "$1" "${2-}"; keep=$2;   shift 2 ;;
         --dry-run)   dry_run=1; shift ;;
         -h|--help)   usage ;;
         *) echo "Unknown argument: $1" >&2; usage ;;

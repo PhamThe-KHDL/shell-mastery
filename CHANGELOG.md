@@ -2,7 +2,11 @@
 
 All notable changes to `shell-mastery` are documented here.
 
-Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning follows [SemVer](https://semver.org/):
+Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Versioning follows [SemVer](https://semver.org/).
+
+**Current phase: pre-stable (`0.0.x`).** Every release increments the patch — MINOR bumps are reserved for the jump to `0.1.0` (see [`ROADMAP.md`](ROADMAP.md)) and later, and MAJOR bumps for `1.0.0` and beyond. Under `0.0.x` anything can move; no stability guarantees on `lib/` interfaces yet.
+
+Once `0.1.0` ships:
 
 - **MAJOR** — breaking changes to `lib/` public interfaces or repo layout that would invalidate reader bookmarks.
 - **MINOR** — new lessons, projects, topics, or libraries.
@@ -25,7 +29,7 @@ Unreleased work lives at the top under `## [Unreleased]` and moves down when a v
 
 ---
 
-## [0.1.0] — 2026-07-06
+## [0.0.1] — 2026-07-06
 
 Initial public version. The full 6-lesson curriculum, cross-cutting topics, cheatsheets, shell comparisons, two real projects, a sourceable library, and CI. Everything English-first with parallel Vietnamese notes in `learn/`.
 
@@ -130,15 +134,19 @@ One-page references. No prose beyond one-line notes and a `**Pitfall**:` at the 
 
 ## Version conventions in future changes
 
-**A change to `learn/` prose** is a MINOR bump if it adds a new lesson, PATCH otherwise.
-**A change to `lib/`** is MAJOR if it removes or renames a public function, MINOR if it adds one, PATCH for internal edits.
-**A change to `topics/`, `cheatsheets/`, `shells/`, `snippets/`** is PATCH regardless of size (they're reference material, not stable APIs).
-**A change to `projects/`** is MINOR if it adds a project, PATCH otherwise.
-**A change to `tools/` or CI** is MINOR if new behavior, PATCH if fixes.
+**While in `0.0.x`** — bump the patch on every release, regardless of the change's size. Nothing here is API-stable yet. Batch related changes into one release rather than tagging trivially.
 
-Tag with `git tag v0.1.0` etc. The `release.yml` workflow will auto-generate release notes on push.
+**From `0.1.0` onward** the SemVer rules take effect:
+
+- **A change to `learn/` prose** is a MINOR bump if it adds a new lesson, PATCH otherwise.
+- **A change to `lib/`** is MAJOR if it removes or renames a public function, MINOR if it adds one, PATCH for internal edits.
+- **A change to `topics/`, `cheatsheets/`, `shells/`, `snippets/`** is PATCH regardless of size (they're reference material, not stable APIs).
+- **A change to `projects/`** is MINOR if it adds a project, PATCH otherwise.
+- **A change to `tools/` or CI** is MINOR if new behavior, PATCH if fixes.
+
+Tag with `git tag v0.0.1`, `git tag v0.0.2`, etc. The `release.yml` workflow auto-generates release notes on push.
 
 ---
 
-[Unreleased]: https://github.com/USER/shell-mastery/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/USER/shell-mastery/releases/tag/v0.1.0
+[Unreleased]: https://github.com/PhamThe-KHDL/shell-mastery/compare/v0.0.1...HEAD
+[0.0.1]: https://github.com/PhamThe-KHDL/shell-mastery/releases/tag/v0.0.1

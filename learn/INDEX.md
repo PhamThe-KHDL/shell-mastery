@@ -57,13 +57,15 @@ Reading a shell tutorial gives you the illusion of understanding. Only running a
 
 Wait a day, then redo one exercise from memory before moving on. Spaced repetition beats one-shot cramming.
 
-## Progress tracker
+## Your progress tracker
+
+This section is for **your** progress as a reader — separate from the "shipped" column in the study-order table above (which refers to whether the lesson content exists in this repo).
 
 Legend: 🟢 done · 🟡 in progress · ⚪ not started · 🔵 revisiting
 
-Update the emoji per lesson as you go. Commit it if the repo is yours — your progress becomes a diff history.
+Update the emoji per lesson as you go. If the repo is your fork, commit it — your git history becomes your study log.
 
-| # | Lesson | Status |
+| # | Lesson | Your status |
 |---|---|---|
 | 1 | Basics | ⚪ |
 | 2 | Text processing | ⚪ |

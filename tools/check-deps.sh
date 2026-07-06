@@ -13,15 +13,33 @@ check() {
     fi
 }
 
+warn() {
+    printf '  !! %-12s %s\n' "$1" "$2"
+}
+
 echo "Checking tools:"
-check bash       "bash 4+ recommended (macOS default is 3.2; brew install bash)"
+check bash       "bash 4+ required (macOS default is 3.2; brew install bash)"
+
+if command -v bash >/dev/null 2>&1; then
+    bash_major=$(bash -c 'printf "%s" "${BASH_VERSINFO[0]}"')
+    if (( bash_major < 4 )); then
+        warn bash "found bash $(bash --version | head -1); this repo requires bash 4+"
+        missing+=("bash>=4")
+    fi
+fi
+
 check shellcheck "brew install shellcheck"
 check bats       "brew install bats-core"
-check shfmt      "brew install shfmt (optional — script formatter)"
+
+if command -v shfmt >/dev/null 2>&1; then
+    printf '  ✅ %-12s %s\n' "shfmt" "$(shfmt --version 2>&1 | head -1)"
+else
+    warn shfmt "missing (optional — script formatter, brew install shfmt)"
+fi
 
 if [[ ${#missing[@]} -gt 0 ]]; then
     echo
-    echo "Missing ${#missing[@]} tool(s). Install and re-run." >&2
+    echo "Missing ${#missing[@]} required tool(s). Install and re-run." >&2
     exit 1
 fi
 echo

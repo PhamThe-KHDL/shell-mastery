@@ -16,15 +16,17 @@ Every change is weighed against these:
 
 ## Version targets
 
-Rough anchor points. Dates are aspirational.
+Rough anchor points. Dates are aspirational. **We're in pre-stable (`0.0.x`)** — every release is a patch bump, no interface guarantees. The jump to `0.1.0` marks the switch to real SemVer.
 
 | Version | Theme | Target |
 |---|---|---|
-| **0.2** | Coverage — fill the gaps in v0.1's curriculum | Q4 2026 |
-| **0.3** | Real-world projects — three more end-to-end case studies | Q1 2027 |
-| **0.4** | Portability & POSIX story — dedicated lesson + tested `#!/bin/sh` companions | Q2 2027 |
-| **0.5** | Interactive lesson runner — `./tools/study.sh` guides you through | Q3 2027 |
-| **1.0** | Stable curriculum, semantic-version guarantees on `lib/`, publish site | 2028 |
+| **0.0.2** | Coverage — fill the gaps in v0.0.1's curriculum (networking, file-mgmt, processes, cron, JSON/YAML) | Q4 2026 |
+| **0.0.3** | Real-world projects — 3 more end-to-end case studies (dotfiles installer, ssh-tunnel supervisor, repo audit) | Q1 2027 |
+| **0.0.4** | Portability & POSIX story — dedicated lesson + tested `#!/bin/sh` companions | Q2 2027 |
+| **0.0.5** | Interactive lesson runner — `./tools/study.sh` guides you through the curriculum | Q3 2027 |
+| **0.0.6** | Interactive-shell config walkthroughs (`~/.bashrc`, `~/.zshrc` starting points) + `shells/nushell/` | Q4 2027 |
+| **0.1.0** | First minor bump — stable curriculum surface, SemVer guarantees on `lib/`, published site (mdBook/Docusaurus) | Q1 2028 |
+| **1.0.0** | Stable everything — breaking changes gated on MAJOR bumps from here on | 2028+ |
 
 ## By area
 

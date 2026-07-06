@@ -3,7 +3,7 @@
 # Usage:
 #   . lib/tempdir.sh
 #   tmp=$(make_tempdir)   # sets EXIT trap to clean it up
-# The trap is appended, so multiple calls compose correctly.
+# Existing EXIT trap handlers are preserved.
 
 _TEMPDIRS=()
 
@@ -14,7 +14,26 @@ _tempdir_cleanup() {
     done
 }
 
-trap _tempdir_cleanup EXIT
+_tempdir_install_exit_trap() {
+    local existing
+    existing=$(trap -p EXIT || true)
+
+    if [[ -z $existing ]]; then
+        trap '_tempdir_cleanup' EXIT
+        return
+    fi
+
+    if [[ $existing == *"_tempdir_cleanup"* ]]; then
+        return
+    fi
+
+    existing=${existing#trap -- \'}
+    existing=${existing%\' EXIT}
+    # shellcheck disable=SC2064  # We intentionally preserve the current EXIT trap body.
+    trap "${existing}; _tempdir_cleanup" EXIT
+}
+
+_tempdir_install_exit_trap
 
 make_tempdir() {
     local d

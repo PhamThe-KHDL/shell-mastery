@@ -74,7 +74,7 @@ transform "$work" > "$scratch/output"
 # whether normally, via error, or via signal.
 ```
 
-The `EXIT` trap composes with any other `trap EXIT` you set later — but only if you `trap 'existing_action; _tempdir_cleanup' EXIT`. Set the tempdir source first if you want it to layer cleanly.
+When you source `tempdir.sh`, it preserves any existing `EXIT` trap by appending `_tempdir_cleanup`. If you replace `trap EXIT` later in your script, include `_tempdir_cleanup` in the new handler so temp dirs still get removed.
 
 ### strings.sh
 

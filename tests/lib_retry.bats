@@ -4,17 +4,17 @@ setup() {
     load '../lib/retry.sh'
 }
 
-@test "retry: thành công lần đầu" {
+@test "retry: succeeds on first attempt" {
     run retry 3 1 true
     [ "$status" -eq 0 ]
 }
 
-@test "retry: fail hết" {
+@test "retry: fails after max attempts" {
     run retry 2 0 false
     [ "$status" -ne 0 ]
 }
 
-@test "retry: thành công lần thứ 2" {
+@test "retry: succeeds on second attempt" {
     counter_file=$(mktemp)
     echo 0 > "$counter_file"
     flaky() {

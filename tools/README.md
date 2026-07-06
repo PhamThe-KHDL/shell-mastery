@@ -8,7 +8,7 @@ Every tool is itself a bash script that follows this repo's own conventions, so 
 
 | Script | What it does | When to run |
 |---|---|---|
-| [`check-deps.sh`](check-deps.sh)  | Verifies bash 4+, shellcheck, bats, and shfmt are installed | First-time setup, or when a script errors with "command not found" |
+| [`check-deps.sh`](check-deps.sh)  | Verifies bash 4+, shellcheck, and bats are installed; reports shfmt if present | First-time setup, or when a script errors with "command not found" |
 | [`new-lesson.sh`](new-lesson.sh)  | Scaffolds a new `learn/NN-slug/` folder with `en/`, `vi/`, and `examples/` templates | Before writing a new lesson — saves manual mkdir + boilerplate |
 | [`lint-all.sh`](lint-all.sh)      | Runs `shellcheck --severity=warning` on every `.sh` file in the repo | Before every commit; also runs in CI |
 
@@ -27,7 +27,7 @@ Checking tools:
 ✅ All required tools installed.
 ```
 
-Exit code is 1 if anything is missing, 0 otherwise — safe to gate other scripts on it.
+Exit code is 1 if any required tool is missing, 0 otherwise — safe to gate other scripts on it. `shfmt` is reported as optional and does not fail the check.
 
 ### new-lesson.sh
 
