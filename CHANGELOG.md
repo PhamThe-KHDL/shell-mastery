@@ -30,7 +30,7 @@ Unreleased work lives at the top under `## [Unreleased]` and moves down when a v
 - `README.md` now explains the real testing contract more precisely: `lib/` and `projects/` are bats-tested, while `learn/` examples and `snippets/` stay lightweight.
 - `README.md` and `tools/README.md` now document the macOS Bash 4+/PATH setup explicitly.
 - `README.md`, `learn/INDEX.md`, and `ROADMAP.md` now show lessons 7-14 as in-repo material rather than future roadmap items only, and describe them more precisely as usable lessons that still need polish rather than empty templates.
-- `README.md`, `learn/INDEX.md`, `ROADMAP.md`, and section READMEs now reflect the current repo state more accurately: lesson 14 is present, lessons 7-14 are usable in-repo material, and the roadmap focuses on deepening rather than merely creating those lessons.
+- `README.md`, `learn/INDEX.md`, `ROADMAP.md`, and section READMEs now reflect the current repo state more accurately: all 14 lessons are present in-repo, and the roadmap focuses on deepening and extension work rather than merely creating missing lessons.
 - The new lessons' example directories now contain real topic-specific scripts instead of generic placeholder stubs.
 - `projects/log-analyzer/README.md` and `projects/README.md` now point readers at checked-in fixture data for a faster first run.
 - `tests/projects_log_analyzer.bats` now uses the checked-in fixture file instead of embedding sample input inline.

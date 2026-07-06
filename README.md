@@ -4,7 +4,7 @@
 
 **A structured learning repository for Unix shell — bilingual notes, runnable examples, tested libraries, and real projects, from `ls` to `set -euo pipefail`.**
 
-Fourteen lessons in total, with six fully shipped core lessons and eight expanded next-step lessons that are already usable but still being polished, plus five deep-dive topics, seven cheatsheets, four shell comparisons, two real-world projects, and a sourceable library — everything shellcheck-clean, tested where behavior is stable, and CI-verified.
+Fourteen shipped lessons in total, plus five deep-dive topics, seven cheatsheets, four shell comparisons, two real-world projects, and a sourceable library — everything shellcheck-clean, tested where behavior is stable, and CI-verified.
 
 ![version](https://img.shields.io/badge/version-0.0.1-blue?style=flat-square) ![bash](https://img.shields.io/badge/bash-4.0+-4EAA25?style=flat-square&logo=gnubash&logoColor=white) ![shellcheck](https://img.shields.io/badge/shellcheck-clean-00A651?style=flat-square) ![bats](https://img.shields.io/badge/tests-bats--core-8E44AD?style=flat-square) ![languages](https://img.shields.io/badge/prose-en_+_vi-DC382D?style=flat-square) ![scope](https://img.shields.io/badge/scope-open--source-555555?style=flat-square)
 
@@ -26,7 +26,7 @@ The repository is opinionated: bash 4+, strict mode by default, shellcheck-as-CI
 
 ## 🎯 Outcomes
 
-By the end of the shipped six-lesson core, you will be able to:
+By the end of the lesson track, you will be able to:
 
 1. **Navigate and combine tools fluently** — pipe `grep | awk | sort` without hesitation, know when to reach for `xargs -P` vs a `for` loop, quote correctly on the first try.
 2. **Write scripts that fail loudly, not silently** — strict mode, input validation at the boundary, atomic writes with `mv`, cleanup on exit and signals.
@@ -35,7 +35,7 @@ By the end of the shipped six-lesson core, you will be able to:
 5. **Start testing your bash with confidence** — read and extend bats suites for real scripts, then work through the dedicated testing lesson to learn fixtures, failure-path assertions, and tempdir-driven tests.
 6. **Read someone else's script and understand what it does** — including the reasons for its safety patterns.
 
-If you're already fluent in all six, this repo is not for you — see [`resources.md`](resources.md) for the next level.
+If you're already fluent in the full lesson track, this repo is not for you — see [`resources.md`](resources.md) for the next level.
 
 ---
 
@@ -49,13 +49,13 @@ Shell Mastery is built around five principles:
 2. **Every stable interface has a test** — `lib/` and `projects/` are bats-tested; lesson examples stay small and readable, and `snippets/` remain copy-paste templates.
 3. **Bilingual prose (`en/` + `vi/`) in `learn/`, English everywhere else** — code, comments, topics, and cheatsheets don't fork across languages.
 4. **CI is the enforcer** — shellcheck-clean and bats-green are hard gates, not aspirations.
-5. **Depth beats velocity** — one well-tested lesson beats three drafts.
+5. **Depth beats velocity** — one well-tested lesson beats three rushed lessons.
 
 ---
 
 ## 📖 Learning Path
 
-The `learn/` track now contains six shipped core lessons plus eight expanded next-step lessons. Each lesson has `en/{notes,exercises,solutions}.md`, `vi/{notes,exercises,solutions}.md`, and `examples/`.
+The `learn/` track now contains fourteen shipped lessons. Each lesson has `en/{notes,exercises,solutions}.md`, `vi/{notes,exercises,solutions}.md`, and `examples/`.
 
 | # | Lesson | English | Vietnamese | ~Time | Status |
 | --- | --- | --- | --- | --- | --- |
@@ -65,16 +65,16 @@ The `learn/` track now contains six shipped core lessons plus eight expanded nex
 | 4 | I/O and processes — subshell, xargs, trap, signals, jobs | [en](learn/04-io-and-processes/en/notes.md) | [vi](learn/04-io-and-processes/vi/notes.md) | 3h | 🟢 shipped |
 | 5 | Robust scripts — `set -euo pipefail`, IFS, error handling | [en](learn/05-robust-scripts/en/notes.md) | [vi](learn/05-robust-scripts/vi/notes.md) | 2h | 🟢 shipped |
 | 6 | Advanced — arrays, associative arrays, parameter expansion, coproc | [en](learn/06-advanced/en/notes.md) | [vi](learn/06-advanced/vi/notes.md) | 3h | 🟢 shipped |
-| 7 | Networking — `curl`, `ssh`, DNS, ports | [en](learn/07-networking/en/notes.md) | [vi](learn/07-networking/vi/notes.md) | draft | 🟡 draft |
-| 8 | File management — `find`, `tar`, `rsync`, safe delete | [en](learn/08-file-management/en/notes.md) | [vi](learn/08-file-management/vi/notes.md) | draft | 🟡 draft |
-| 9 | Processes — inspect, signal, background, priority | [en](learn/09-processes/en/notes.md) | [vi](learn/09-processes/vi/notes.md) | draft | 🟡 draft |
-| 10 | Cron and scheduling — cron, timers, `flock` | [en](learn/10-cron-and-scheduling/en/notes.md) | [vi](learn/10-cron-and-scheduling/vi/notes.md) | draft | 🟡 draft |
-| 11 | JSON and YAML — `jq`, `yq`, structured data | [en](learn/11-json-and-yaml/en/notes.md) | [vi](learn/11-json-and-yaml/vi/notes.md) | draft | 🟡 draft |
-| 12 | Dates and times — epoch, UTC, GNU/BSD `date` | [en](learn/12-dates-and-times/en/notes.md) | [vi](learn/12-dates-and-times/vi/notes.md) | draft | 🟡 draft |
-| 13 | Networking 2 — tunnels, proxies, `nc` workflows | [en](learn/13-networking-2/en/notes.md) | [vi](learn/13-networking-2/vi/notes.md) | draft | 🟡 draft |
-| 14 | Testing shell — bats, fixtures, failure-path tests | [en](learn/14-testing-shell/en/notes.md) | [vi](learn/14-testing-shell/vi/notes.md) | draft | 🟡 draft |
+| 7 | Networking — `curl`, `ssh`, DNS, ports | [en](learn/07-networking/en/notes.md) | [vi](learn/07-networking/vi/notes.md) | 2h+ | 🟢 shipped |
+| 8 | File management — `find`, `tar`, `rsync`, safe delete | [en](learn/08-file-management/en/notes.md) | [vi](learn/08-file-management/vi/notes.md) | 2h+ | 🟢 shipped |
+| 9 | Processes — inspect, signal, background, priority | [en](learn/09-processes/en/notes.md) | [vi](learn/09-processes/vi/notes.md) | 2h+ | 🟢 shipped |
+| 10 | Cron and scheduling — cron, timers, `flock` | [en](learn/10-cron-and-scheduling/en/notes.md) | [vi](learn/10-cron-and-scheduling/vi/notes.md) | 2h+ | 🟢 shipped |
+| 11 | JSON and YAML — `jq`, `yq`, structured data | [en](learn/11-json-and-yaml/en/notes.md) | [vi](learn/11-json-and-yaml/vi/notes.md) | 2h+ | 🟢 shipped |
+| 12 | Dates and times — epoch, UTC, GNU/BSD `date` | [en](learn/12-dates-and-times/en/notes.md) | [vi](learn/12-dates-and-times/vi/notes.md) | 1.5h+ | 🟢 shipped |
+| 13 | Networking 2 — tunnels, proxies, `nc` workflows | [en](learn/13-networking-2/en/notes.md) | [vi](learn/13-networking-2/vi/notes.md) | 2h+ | 🟢 shipped |
+| 14 | Testing shell — bats, fixtures, failure-path tests | [en](learn/14-testing-shell/en/notes.md) | [vi](learn/14-testing-shell/vi/notes.md) | 2h+ | 🟢 shipped |
 
-The first six lessons are the polished core. Lessons 7-14 are now fully present in-tree with notes, exercises, solutions, and runnable examples, and they are detailed enough to study today; they still need another polishing pass to fully match the depth and finish of the core six. Full study loop, prerequisites, and FAQ live in [`learn/INDEX.md`](learn/INDEX.md).
+All fourteen lessons are present in-tree with notes, exercises, solutions, and runnable examples. Full study loop, prerequisites, and FAQ live in [`learn/INDEX.md`](learn/INDEX.md).
 
 ---
 

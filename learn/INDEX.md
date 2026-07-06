@@ -24,18 +24,18 @@ Each folder is a slug — the number is just for sort order. Inserting a lesson 
 | 4 | I/O and processes — subshell, xargs, trap, signals, jobs | [en](04-io-and-processes/en/notes.md) | [vi](04-io-and-processes/vi/notes.md) | 3h | 3 |
 | 5 | Robust scripts — `set -euo pipefail`, IFS, error handling | [en](05-robust-scripts/en/notes.md) | [vi](05-robust-scripts/vi/notes.md) | 2h | 3, 4 |
 | 6 | Advanced — arrays, associative arrays, parameter expansion, coproc | [en](06-advanced/en/notes.md) | [vi](06-advanced/vi/notes.md) | 3h | 3, 5 |
-| 7 | Networking — `curl`, `ssh`, `scp`, DNS, ports | [en](07-networking/en/notes.md) | [vi](07-networking/vi/notes.md) | draft | 3, 5 |
-| 8 | File management — `find`, `tar`, `rsync`, safe delete | [en](08-file-management/en/notes.md) | [vi](08-file-management/vi/notes.md) | draft | 2, 5 |
-| 9 | Processes — inspect, signal, background, priority | [en](09-processes/en/notes.md) | [vi](09-processes/vi/notes.md) | draft | 4, 5 |
-| 10 | Cron and scheduling — cron, timers, `flock` | [en](10-cron-and-scheduling/en/notes.md) | [vi](10-cron-and-scheduling/vi/notes.md) | draft | 5, 9 |
-| 11 | JSON and YAML — `jq`, `yq`, structured data boundaries | [en](11-json-and-yaml/en/notes.md) | [vi](11-json-and-yaml/vi/notes.md) | draft | 2, 3 |
-| 12 | Dates and times — GNU/BSD `date`, epoch, UTC | [en](12-dates-and-times/en/notes.md) | [vi](12-dates-and-times/vi/notes.md) | draft | 5 |
-| 13 | Networking 2 — tunnels, proxies, `nc` workflows | [en](13-networking-2/en/notes.md) | [vi](13-networking-2/vi/notes.md) | draft | 7 |
-| 14 | Testing shell — bats, fixtures, failure-path tests | [en](14-testing-shell/en/notes.md) | [vi](14-testing-shell/vi/notes.md) | draft | 3, 5 |
+| 7 | Networking — `curl`, `ssh`, `scp`, DNS, ports | [en](07-networking/en/notes.md) | [vi](07-networking/vi/notes.md) | 2h+ | 3, 5 |
+| 8 | File management — `find`, `tar`, `rsync`, safe delete | [en](08-file-management/en/notes.md) | [vi](08-file-management/vi/notes.md) | 2h+ | 2, 5 |
+| 9 | Processes — inspect, signal, background, priority | [en](09-processes/en/notes.md) | [vi](09-processes/vi/notes.md) | 2h+ | 4, 5 |
+| 10 | Cron and scheduling — cron, timers, `flock` | [en](10-cron-and-scheduling/en/notes.md) | [vi](10-cron-and-scheduling/vi/notes.md) | 2h+ | 5, 9 |
+| 11 | JSON and YAML — `jq`, `yq`, structured data boundaries | [en](11-json-and-yaml/en/notes.md) | [vi](11-json-and-yaml/vi/notes.md) | 2h+ | 2, 3 |
+| 12 | Dates and times — GNU/BSD `date`, epoch, UTC | [en](12-dates-and-times/en/notes.md) | [vi](12-dates-and-times/vi/notes.md) | 1.5h+ | 5 |
+| 13 | Networking 2 — tunnels, proxies, `nc` workflows | [en](13-networking-2/en/notes.md) | [vi](13-networking-2/vi/notes.md) | 2h+ | 7 |
+| 14 | Testing shell — bats, fixtures, failure-path tests | [en](14-testing-shell/en/notes.md) | [vi](14-testing-shell/vi/notes.md) | 2h+ | 3, 5 |
 
-Lessons 1-6 are the shipped core. Lessons 7-14 are now fully present in-tree with notes, exercises, solutions, and runnable examples; they are usable today, but still need another polishing pass to fully match the first six.
+All fourteen lessons are present in-tree with notes, exercises, solutions, and runnable examples.
 
-The first six polished lessons are about ~16 hours of study material. If you include lessons 7-14 as they exist today, the available in-repo curriculum is materially larger. Add another ~10 hours of exercises + tinkering to actually internalize the core six alone.
+The first six lessons are about ~16 hours of study material on their own. The full 14-lesson track is materially larger. Add another ~10 hours of exercises + tinkering to actually internalize the early core, and more if you work through the full track carefully.
 
 ## Anatomy of a lesson
 
@@ -69,7 +69,7 @@ Wait a day, then redo one exercise from memory before moving on. Spaced repetiti
 
 ## Your progress tracker
 
-This section is for **your** progress as a reader — separate from the "shipped" column in the study-order table above (which refers to whether the lesson content exists in this repo).
+This section is for **your** progress as a reader — separate from the lesson table above, which describes the curriculum itself rather than your personal completion state.
 
 Legend: 🟢 done · 🟡 in progress · ⚪ not started · 🔵 revisiting
 

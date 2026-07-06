@@ -32,7 +32,7 @@ Rough anchor points. Dates are aspirational. **We're in pre-stable (`0.0.x`)** �
 
 ### `learn/` — curriculum polish
 
-Lessons `07-14` now exist in-tree with bilingual notes, exercises, solutions, and runnable examples. The work left here is no longer "create the lesson"; it is "push each lesson closer to the depth and finish of `01-06`."
+All fourteen lessons now exist in-tree with bilingual notes, exercises, solutions, and runnable examples. The work left here is no longer "create the lesson"; it is continued depth improvements, more examples, and more companion reference material.
 
 - [ ] **Deepen `07-networking`** — add `scp`, `wget`, `dig`, and retry/backoff examples for flaky endpoints.
 - [ ] **Deepen `08-file-management`** — expand `find` patterns, archive verification, and safer deletion workflows.
@@ -43,7 +43,7 @@ Lessons `07-14` now exist in-tree with bilingual notes, exercises, solutions, an
 - [ ] **Deepen `13-networking-2`** — add SSH multiplexing, reverse tunnels, and `~/.ssh/config` case studies.
 - [ ] **Deepen `14-testing-shell`** — add command mocking, fixture layout, integration-test shape, and coverage notes.
 
-The repo now has a complete 14-lesson path. The remaining gap is polish depth, not missing directories.
+The repo now has a complete 14-lesson path. The remaining work is continuous improvement, not missing lesson directories.
 
 ### `topics/` — cross-cutting deep dives
 
