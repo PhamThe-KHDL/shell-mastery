@@ -32,18 +32,20 @@ Rough anchor points. Dates are aspirational. **We're in pre-stable (`0.0.x`)** �
 
 ### `learn/` — new lessons
 
-Planned additions, in rough priority order:
+Planned additions, in rough priority order. The directories for these lessons now exist as draft lessons under `learn/`; the work left is polishing them until they match the depth and finish of lessons 1-6:
 
 - [ ] **`07-networking`** — `curl`, `wget`, `ss`/`netstat`, `dig`, `nc`, SSH & SCP idioms, retry patterns for flaky endpoints.
 - [ ] **`08-file-management`** — `find` deep dive, `tar`/`zip` archive strategies, safe `rm`, `rsync` for backups.
-- [ ] **`09-processes`** — `ps`, `top`, `htop`, `pgrep`/`pkill`, `nohup`, `disown`, `nice`/`ionice`, `strace`/`lsof` basics.
 - [ ] **`10-cron-and-scheduling`** — cron syntax, `at`, systemd timers, common cron gotchas (`$PATH`, `HOME`, TERM), locking with `flock`.
 - [ ] **`11-json-and-yaml`** — `jq` fundamentals, `yq`, reading API responses in bash, when to stop and use Python.
+- [ ] **`14-testing-shell`** — bats-core deep dive, integration testing, mocking commands with `$PATH` shims, coverage with `bashcov`.
+- [ ] **`09-processes`** — `ps`, `top`, `htop`, `pgrep`/`pkill`, `nohup`, `disown`, `nice`/`ionice`, `strace`/`lsof` basics.
 - [ ] **`12-dates-and-times`** — GNU vs BSD `date`, epoch conversion, ISO 8601, timezone gotchas.
 - [ ] **`13-networking-2`** — writing simple HTTP servers with `nc`, reverse tunnels, SSH multiplexing, `ProxyCommand`.
-- [ ] **`14-testing-shell`** — bats-core deep dive, integration testing, mocking commands with `$PATH` shims, coverage with `bashcov`.
 
 Each lesson still ships bilingual (`en/` + `vi/`) prose, English examples, exercises, and solutions. Adding one lesson is roughly 3 days of focused writing plus review.
+
+If only one lesson gets added next, it should probably be `14-testing-shell`: the repo already teaches learners to read and extend bats suites, but the curriculum does not yet have a dedicated testing module to match that outcome explicitly.
 
 ### `topics/` — cross-cutting deep dives
 
@@ -163,4 +165,4 @@ Roughly, in order:
 - **Improve a topic** — expand a section, add a worked example, fix a table.
 - **Translate a lesson** — English → Vietnamese diffs are always welcome. Vietnamese → other languages is a bigger conversation; open an issue first.
 
-See `CONTRIBUTING.md` (when it exists) for the mechanics.
+See [`CONTRIBUTING.md`](CONTRIBUTING.md) for the mechanics.

@@ -22,7 +22,7 @@ On macOS, `brew install bash` is not enough by itself if `which bash` still prin
 You need your shell to find Homebrew's Bash first:
 
 ```sh
-echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zprofile
+echo 'export PATH="$(brew --prefix)/bin:$PATH"' >> ~/.zprofile
 exec zsh
 which bash
 bash --version
@@ -30,8 +30,13 @@ bash --version
 
 Expected result:
 
-- `which bash` → `/opt/homebrew/bin/bash`
+- `which bash` → `.../bin/bash` from your Homebrew prefix
 - `bash --version` → `4.x` or `5.x`
+
+Typical prefixes:
+
+- Apple Silicon macOS → `/opt/homebrew/bin/bash`
+- Intel macOS → `/usr/local/bin/bash`
 
 ## What kinds of changes are welcome
 

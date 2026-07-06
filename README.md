@@ -4,7 +4,7 @@
 
 **A structured learning repository for Unix shell — bilingual notes, runnable examples, tested libraries, and real projects, from `ls` to `set -euo pipefail`.**
 
-Six progressive lessons, five deep-dive topics, seven cheatsheets, four shell comparisons, two real-world projects, and a sourceable library — everything shellcheck-clean, tested where behavior is stable, and CI-verified.
+Fourteen lessons in total, with six fully shipped core lessons and eight draft next-step lessons, plus five deep-dive topics, seven cheatsheets, four shell comparisons, two real-world projects, and a sourceable library — everything shellcheck-clean, tested where behavior is stable, and CI-verified.
 
 ![version](https://img.shields.io/badge/version-0.0.1-blue?style=flat-square) ![bash](https://img.shields.io/badge/bash-4.0+-4EAA25?style=flat-square&logo=gnubash&logoColor=white) ![shellcheck](https://img.shields.io/badge/shellcheck-clean-00A651?style=flat-square) ![bats](https://img.shields.io/badge/tests-bats--core-8E44AD?style=flat-square) ![languages](https://img.shields.io/badge/prose-en_+_vi-DC382D?style=flat-square) ![scope](https://img.shields.io/badge/scope-open--source-555555?style=flat-square)
 
@@ -16,7 +16,7 @@ Six progressive lessons, five deep-dive topics, seven cheatsheets, four shell co
 
 ## ⚙️ Overview
 
-`shell-mastery` is a personal-learning repo built as a **complete curriculum**, not a link dump or a set of scattered snippets. It takes a reader from `ls` and `cd` on day one to writing production-grade bash on day thirty — with every concept demonstrated by a runnable script, tested by bats, and lint-clean under shellcheck.
+`shell-mastery` is a personal-learning repo built as a **complete curriculum**, not a link dump or a set of scattered snippets. It takes a reader from `ls` and `cd` on day one to writing production-grade bash on day thirty — with every concept demonstrated by runnable scripts, stable interfaces covered by bats, and the repo kept lint-clean under shellcheck.
 
 Every lesson ships in both **English** and **Vietnamese** (`en/` + `vi/` subfolders), while code and code comments stay English-only so examples read consistently regardless of which language column you follow.
 
@@ -26,13 +26,13 @@ The repository is opinionated: bash 4+, strict mode by default, shellcheck-as-CI
 
 ## 🎯 Outcomes
 
-By the end of the six-lesson curriculum, you will be able to:
+By the end of the shipped six-lesson core, you will be able to:
 
 1. **Navigate and combine tools fluently** — pipe `grep | awk | sort` without hesitation, know when to reach for `xargs -P` vs a `for` loop, quote correctly on the first try.
 2. **Write scripts that fail loudly, not silently** — strict mode, input validation at the boundary, atomic writes with `mv`, cleanup on exit and signals.
 3. **Debug systematically** — `set -x`, `PS4`, `trap ERR`, and read shellcheck warnings without googling every code.
 4. **Recognize shell's limits** — spot the tasks that have outgrown shell and reach for `awk`, Python, or Go with confidence.
-5. **Test your bash** — write bats tests alongside every non-trivial script, wire them into CI.
+5. **Start testing your bash with confidence** — read and extend bats suites for real scripts now, then pick up dedicated testing patterns as the next module after the current six lessons.
 6. **Read someone else's script and understand what it does** — including the reasons for its safety patterns.
 
 If you're already fluent in all six, this repo is not for you — see [`resources.md`](resources.md) for the next level.
@@ -55,7 +55,7 @@ Shell Mastery is built around five principles:
 
 ## 📖 Learning Path
 
-Six progressive lessons in `learn/`. Each lesson: `en/{notes,exercises,solutions}.md`, `vi/{notes,exercises,solutions}.md`, and 2–3 runnable scripts in `examples/`.
+The `learn/` track now contains six shipped core lessons plus eight draft next-step lessons. Each lesson has `en/{notes,exercises,solutions}.md`, `vi/{notes,exercises,solutions}.md`, and `examples/`.
 
 | # | Lesson | English | Vietnamese | ~Time | Status |
 | --- | --- | --- | --- | --- | --- |
@@ -65,8 +65,16 @@ Six progressive lessons in `learn/`. Each lesson: `en/{notes,exercises,solutions
 | 4 | I/O and processes — subshell, xargs, trap, signals, jobs | [en](learn/04-io-and-processes/en/notes.md) | [vi](learn/04-io-and-processes/vi/notes.md) | 3h | 🟢 shipped |
 | 5 | Robust scripts — `set -euo pipefail`, IFS, error handling | [en](learn/05-robust-scripts/en/notes.md) | [vi](learn/05-robust-scripts/vi/notes.md) | 2h | 🟢 shipped |
 | 6 | Advanced — arrays, associative arrays, parameter expansion, coproc | [en](learn/06-advanced/en/notes.md) | [vi](learn/06-advanced/vi/notes.md) | 3h | 🟢 shipped |
+| 7 | Networking — `curl`, `ssh`, DNS, ports | [en](learn/07-networking/en/notes.md) | [vi](learn/07-networking/vi/notes.md) | draft | 🟡 draft |
+| 8 | File management — `find`, `tar`, `rsync`, safe delete | [en](learn/08-file-management/en/notes.md) | [vi](learn/08-file-management/vi/notes.md) | draft | 🟡 draft |
+| 9 | Processes — inspect, signal, background, priority | [en](learn/09-processes/en/notes.md) | [vi](learn/09-processes/vi/notes.md) | draft | 🟡 draft |
+| 10 | Cron and scheduling — cron, timers, `flock` | [en](learn/10-cron-and-scheduling/en/notes.md) | [vi](learn/10-cron-and-scheduling/vi/notes.md) | draft | 🟡 draft |
+| 11 | JSON and YAML — `jq`, `yq`, structured data | [en](learn/11-json-and-yaml/en/notes.md) | [vi](learn/11-json-and-yaml/vi/notes.md) | draft | 🟡 draft |
+| 12 | Dates and times — epoch, UTC, GNU/BSD `date` | [en](learn/12-dates-and-times/en/notes.md) | [vi](learn/12-dates-and-times/vi/notes.md) | draft | 🟡 draft |
+| 13 | Networking 2 — tunnels, proxies, `nc` workflows | [en](learn/13-networking-2/en/notes.md) | [vi](learn/13-networking-2/vi/notes.md) | draft | 🟡 draft |
+| 14 | Testing shell — bats, fixtures, failure-path tests | [en](learn/14-testing-shell/en/notes.md) | [vi](learn/14-testing-shell/vi/notes.md) | draft | 🟡 draft |
 
-Total: ~16 hours of study material, plus ~10 hours of hands-on exercises. Full study loop, prerequisites, and FAQ live in [`learn/INDEX.md`](learn/INDEX.md).
+The first six lessons are the polished core. Lessons 7-14 now exist in-tree as draft lessons with notes, exercises, solutions, and runnable examples; they still need more polish to fully match the depth of the core six. Full study loop, prerequisites, and FAQ live in [`learn/INDEX.md`](learn/INDEX.md).
 
 ---
 
@@ -149,14 +157,16 @@ bash --version
 Expected output:
 
 ```sh
-/opt/homebrew/bin/bash
+/.../bin/bash
 GNU bash, version 5.x
 ```
 
-If `which bash` still prints `/bin/bash`, put Homebrew first in your startup config and restart your shell:
+On Apple Silicon Macs that path is usually `/opt/homebrew/bin/bash`. On Intel Macs it is usually `/usr/local/bin/bash`.
+
+If `which bash` still prints `/bin/bash`, put Homebrew's bin directory first in your startup config and restart your shell:
 
 ```sh
-echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zprofile
+echo 'export PATH="$(brew --prefix)/bin:$PATH"' >> ~/.zprofile
 exec zsh
 which bash
 ```

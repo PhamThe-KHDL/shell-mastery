@@ -22,10 +22,14 @@ Unreleased work lives at the top under `## [Unreleased]` and moves down when a v
 - `CONTRIBUTING.md` with folder-by-folder contribution rules, PR checklist, and explicit macOS Bash setup guidance.
 - `tests/fixtures/log-analyzer.sample.log` so readers can run `projects/log-analyzer` without needing their own web-server log.
 - `tests/lib_tempdir.bats` to pin down `lib/tempdir.sh` EXIT-trap behavior.
+- Draft lessons for `07-networking`, `08-file-management`, `09-processes`, `10-cron-and-scheduling`, `11-json-and-yaml`, `12-dates-and-times`, `13-networking-2`, and `14-testing-shell`, each with `en/`, `vi/`, notes, exercises, solutions, and topic-specific runnable examples.
 
 ### Changed
 - `README.md` now explains the real testing contract more precisely: `lib/` and `projects/` are bats-tested, while `learn/` examples and `snippets/` stay lightweight.
 - `README.md` and `tools/README.md` now document the macOS Bash 4+/PATH setup explicitly.
+- `README.md`, `learn/INDEX.md`, and `ROADMAP.md` now describe testing more honestly as the next structured step after the current six lessons, with `14-testing-shell` called out as a high-priority curriculum gap.
+- `README.md`, `learn/INDEX.md`, and `ROADMAP.md` now show lessons 7-14 as in-repo draft lessons rather than future roadmap items only, and describe them more precisely as usable drafts rather than bare scaffolds.
+- The new lessons' example directories now contain real topic-specific scripts instead of generic placeholder stubs.
 - `projects/log-analyzer/README.md` and `projects/README.md` now point readers at checked-in fixture data for a faster first run.
 - `tests/projects_log_analyzer.bats` now uses the checked-in fixture file instead of embedding sample input inline.
 
