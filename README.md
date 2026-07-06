@@ -6,7 +6,7 @@
 
 Fourteen shipped lessons in total, plus five deep-dive topics, seven cheatsheets, four shell comparisons, two real-world projects, and four sourceable libraries — everything shellcheck-clean, tested where behavior is stable, and CI-checked for shell code and tests.
 
-![version](https://img.shields.io/badge/version-0.0.1-blue?style=flat-square) ![bash](https://img.shields.io/badge/bash-4.0+-4EAA25?style=flat-square&logo=gnubash&logoColor=white) ![shellcheck](https://img.shields.io/badge/shellcheck-clean-00A651?style=flat-square) ![bats](https://img.shields.io/badge/tests-bats--core-8E44AD?style=flat-square) ![languages](https://img.shields.io/badge/prose-en_+_vi-DC382D?style=flat-square) ![scope](https://img.shields.io/badge/scope-open--source-555555?style=flat-square)
+![version](https://img.shields.io/badge/version-0.0.2-blue?style=flat-square) ![bash](https://img.shields.io/badge/bash-4.0+-4EAA25?style=flat-square&logo=gnubash&logoColor=white) ![shellcheck](https://img.shields.io/badge/shellcheck-clean-00A651?style=flat-square) ![bats](https://img.shields.io/badge/tests-bats--core-8E44AD?style=flat-square) ![languages](https://img.shields.io/badge/prose-en_+_vi-DC382D?style=flat-square) ![scope](https://img.shields.io/badge/scope-open--source-555555?style=flat-square)
 
 ⚙️ [Overview](#%EF%B8%8F-overview) · 🎯 [Outcomes](#-outcomes) · 🧠 [Philosophy](#-philosophy) · 📖 [Learning Path](#-learning-path) · 🧩 [Projects](#-projects) · 🏛️ [Architecture](#%EF%B8%8F-architecture) · 🚀 [Quick Start](#-quick-start) · 📚 [Documentation](#-documentation)
 
