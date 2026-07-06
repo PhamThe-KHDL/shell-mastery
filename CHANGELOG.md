@@ -18,8 +18,12 @@ Unreleased work lives at the top under `## [Unreleased]` and moves down when a v
 
 ## [Unreleased]
 
+## [0.0.2] — 2026-07-06
+
 ### Added
 - `CONTRIBUTING.md` with folder-by-folder contribution rules, PR checklist, and explicit macOS Bash setup guidance.
+- Vietnamese versions of all five `topics/` (`quoting`, `shellcheck`, `debugging`, `performance`, `portability`); each topic is now bilingual under `en/` + `vi/` subfolders, mirroring the `learn/` layout.
+- `CLAUDE.md` with repo-specific guidance (commands, bilingual convention, testing contract, fixture-in-CI gotcha).
 - `tests/fixtures/log-analyzer.sample.log` so readers can run `projects/log-analyzer` without needing their own web-server log.
 - `tests/lib_tempdir.bats` to pin down `lib/tempdir.sh` EXIT-trap behavior.
 - Lessons `07-networking`, `08-file-management`, `09-processes`, `10-cron-and-scheduling`, `11-json-and-yaml`, `12-dates-and-times`, `13-networking-2`, and `14-testing-shell`, each with `en/`, `vi/`, notes, exercises, solutions, and topic-specific runnable examples.
@@ -31,6 +35,8 @@ Unreleased work lives at the top under `## [Unreleased]` and moves down when a v
 - `README.md` and `tools/README.md` now document the macOS Bash 4+/PATH setup explicitly.
 - `README.md`, `learn/INDEX.md`, and `ROADMAP.md` now show lessons 7-14 as shipped in-repo material rather than future roadmap items or empty templates.
 - `README.md`, `learn/INDEX.md`, `ROADMAP.md`, and section READMEs now reflect the current repo state more accurately: all 14 lessons are present in-repo, and the roadmap focuses on deepening and extension work rather than merely creating missing lessons.
+- `topics/` moved from a single `README.md` per topic to `en/` + `vi/` subfolders; the bilingual convention in `README.md`, `ROADMAP.md`, and `CONTRIBUTING.md` now covers both `learn/` and `topics/`.
+- `README.md` architecture diagram now shows all 14 lessons (core 1–6 + applied 7–14) instead of only the first six.
 - The new lessons' example directories now contain real topic-specific scripts instead of generic placeholder stubs.
 - `projects/log-analyzer/README.md` and `projects/README.md` now point readers at checked-in fixture data for a faster first run.
 - `tests/projects_log_analyzer.bats` now uses the checked-in fixture file instead of embedding sample input inline.
@@ -40,6 +46,9 @@ Unreleased work lives at the top under `## [Unreleased]` and moves down when a v
 - `projects/backup-tool/backup.sh` now returns exit code `2` for missing option values and supports `--flag=value` syntax.
 - `lib/tempdir.sh` now preserves an existing EXIT trap when sourced.
 - `tests/lib_retry.bats` now uses ASCII test names so Bats does not skip tests on macOS/Bash combinations.
+- `lib/retry.sh` and `lib/logger.sh` header comments converted from Vietnamese to English, matching the repo's English-only code convention.
+- `07-networking` Vietnamese notes regained the "Safety defaults" section so both languages stay structurally parallel.
+- `tests/fixtures/log-analyzer.sample.log` is now committed (via a `!tests/fixtures/*.log` negation in `.gitignore`); the `*.log` ignore rule had excluded it, so the log-analyzer suite passed locally but failed on a clean CI checkout.
 
 ---
 
@@ -162,5 +171,6 @@ Tag with `git tag v0.0.1`, `git tag v0.0.2`, etc. The `release.yml` workflow aut
 
 ---
 
-[Unreleased]: https://github.com/PhamThe-KHDL/shell-mastery/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/PhamThe-KHDL/shell-mastery/compare/v0.0.2...HEAD
+[0.0.2]: https://github.com/PhamThe-KHDL/shell-mastery/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/PhamThe-KHDL/shell-mastery/releases/tag/v0.0.1
