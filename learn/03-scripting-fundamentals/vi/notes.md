@@ -162,5 +162,5 @@ input=$1
 
 ## Đọc thêm
 
-- [topics/quoting](../../../topics/quoting/README.md)
+- [topics/quoting](../../../topics/quoting/vi/README.md)
 - [snippets/getopts.sh](../../../snippets/getopts.sh)

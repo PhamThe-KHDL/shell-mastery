@@ -1,5 +1,7 @@
 # Topic · Portability — bash vs POSIX sh vs BSD tools
 
+> 🌐 **English** · [Tiếng Việt](../vi/README.md)
+
 Portability isn't a virtue in itself. It's a cost paid for a benefit: your script runs unchanged on Alpine containers, BusyBox routers, macOS's ancient bash, and old servers you can't upgrade. If you don't need those, don't pay the cost.
 
 This page helps you decide, then covers the practical differences when you have decided.
@@ -170,6 +172,6 @@ Now you can write scripts that work with either, and verify at write time.
 
 ## Cross-reference
 
-- [shells/posix-sh](../../shells/posix-sh/README.md) — POSIX idioms.
-- [shells/bash](../../shells/bash/README.md) — bash versioning.
-- [topics/shellcheck](../shellcheck/README.md) — the `--shell=sh` flag catches bashisms.
+- [shells/posix-sh](../../../shells/posix-sh/README.md) — POSIX idioms.
+- [shells/bash](../../../shells/bash/README.md) — bash versioning.
+- [topics/shellcheck](../../shellcheck/en/README.md) — the `--shell=sh` flag catches bashisms.

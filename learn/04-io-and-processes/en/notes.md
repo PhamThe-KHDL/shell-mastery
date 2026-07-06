@@ -111,5 +111,5 @@ Ctrl-Z                      # suspend the current foreground job
 
 ## Further reading
 
-- [topics/debugging](../../../topics/debugging/README.md)
+- [topics/debugging](../../../topics/debugging/en/README.md)
 - `man bash` — sections `SIGNAL`, `JOB CONTROL`, `SHELL EXECUTION ENVIRONMENT`.

@@ -4,15 +4,17 @@ Cross-cutting reference material. Unlike `learn/` (linear course) or `cheatsheet
 
 Read them **when the lessons call them out** — not in advance, not all at once. Each is 200–400 lines of practical explanation with examples.
 
+Each topic ships in both languages under `en/` and `vi/` subfolders (same shape as `learn/`). The `en` / `vi` links in the table below point at each.
+
 ## Available topics
 
-| Topic | What it covers | Read this if |
-|---|---|---|
-| [`quoting/`](quoting/) | Word splitting, `"$var"`, `"${arr[@]}"`, IFS. The #1 source of bugs. | You've ever thought "why did my script split my filename?" |
-| [`shellcheck/`](shellcheck/) | Install, editor integration, silencing, the 10 warnings you'll actually see | You want machine-checked feedback on every script you write |
-| [`debugging/`](debugging/) | `set -x`, `PS4`, `trap ERR`, common symptoms table | Your script does the wrong thing and you don't know why |
-| [`performance/`](performance/) | Why fork is expensive, how to measure, when to leave shell | Your script is slow and you can't tell where |
-| [`portability/`](portability/) | bash vs POSIX vs BSD tools, testing strategies | You're targeting Alpine, macOS, or "everywhere" |
+| Topic | Languages | What it covers | Read this if |
+|---|---|---|---|
+| `quoting/` | [en](quoting/en/README.md) · [vi](quoting/vi/README.md) | Word splitting, `"$var"`, `"${arr[@]}"`, IFS. The #1 source of bugs. | You've ever thought "why did my script split my filename?" |
+| `shellcheck/` | [en](shellcheck/en/README.md) · [vi](shellcheck/vi/README.md) | Install, editor integration, silencing, the 10 warnings you'll actually see | You want machine-checked feedback on every script you write |
+| `debugging/` | [en](debugging/en/README.md) · [vi](debugging/vi/README.md) | `set -x`, `PS4`, `trap ERR`, common symptoms table | Your script does the wrong thing and you don't know why |
+| `performance/` | [en](performance/en/README.md) · [vi](performance/vi/README.md) | Why fork is expensive, how to measure, when to leave shell | Your script is slow and you can't tell where |
+| `portability/` | [en](portability/en/README.md) · [vi](portability/vi/README.md) | bash vs POSIX vs BSD tools, testing strategies | You're targeting Alpine, macOS, or "everywhere" |
 
 ## How they fit into the learning path
 
@@ -47,9 +49,12 @@ Structure a new topic like this:
 
 ```
 topics/<slug>/
-└── README.md       # everything lives here
+├── en/
+│   └── README.md   # English version
+└── vi/
+    └── README.md   # Vietnamese version
 ```
 
-Keep to English only in `topics/` — these are reference material, not primary learning content. The bilingual split lives in `learn/`.
+Topics are bilingual: write `en/README.md` and mirror it in `vi/README.md`. The Vietnamese version should read naturally to a Vietnamese learner — explain the idea clearly, don't translate the English word-for-word. Keep the two in sync — if you change one, update the other in the same PR. Code, commands, and shellcheck codes stay in English in both.
 
 When a topic grows big enough that readers need it repeatedly during the course, prefer linking to it from multiple lessons instead of duplicating the explanation inside each lesson.

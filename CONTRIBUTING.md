@@ -88,6 +88,8 @@ A topic belongs here if it:
 - needs more explanation than a cheatsheet
 - helps a learner solve a real recurring shell problem
 
+Topics are bilingual: each `topics/<slug>/` has `en/README.md` and `vi/README.md`. Write the Vietnamese version to read naturally for a Vietnamese learner — explain the idea, don't translate the English literally. If you change one, mirror the change in the other in the same PR. Code, commands, and shellcheck codes stay English in both.
+
 ### `cheatsheets/`
 
 Use this for short, dense reference pages.

@@ -47,7 +47,7 @@ Shell Mastery is built around five principles:
 
 1. **Learner-first, not reference-dump** — content is chosen for someone working sequentially through the curriculum, not for exhaustive coverage.
 2. **Every stable interface has a test** — `lib/` and `projects/` are bats-tested; lesson examples stay small and readable, and `snippets/` remain copy-paste templates.
-3. **Bilingual prose (`en/` + `vi/`) in `learn/`, English everywhere else** — code, comments, topics, and cheatsheets don't fork across languages.
+3. **Bilingual prose in `learn/` and `topics/`, both via `en/` + `vi/` subfolders** — code, comments, and cheatsheets stay English-only and don't fork across languages.
 4. **CI is the enforcer** — shellcheck-clean and bats-green are hard gates, not aspirations.
 5. **Depth beats velocity** — one well-tested lesson beats three rushed lessons.
 
@@ -277,7 +277,7 @@ IFS=$'\n\t'                  # (in robust scripts) don't split on spaces
 - **Every `lib/` and `projects/` entry has a bats test**, mirrored under `tests/`. `learn/` examples are intentionally lightweight and `snippets/` are templates, not stable interfaces.
 - **shellcheck must pass** at `--severity=warning`. `# shellcheck disable=...` requires a comment explaining why.
 - **Commits reference the lesson**: `feat(learn/02): add sed portability example` or `fix(projects/backup-tool): atomic mv on same fs`.
-- **Prose is bilingual (`en/` + `vi/`) in `learn/` only**. Everything else stays English.
+- **Prose is bilingual**: `learn/` and `topics/` both use `en/` + `vi/` subfolders. Code, comments, cheatsheets, and other section READMEs stay English.
 - **Semantic versioning** applies to `lib/` public interfaces from `0.1.0` onward — see [`CHANGELOG.md`](CHANGELOG.md) for the current pre-stable rules.
 
 ---

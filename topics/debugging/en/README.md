@@ -1,5 +1,7 @@
 # Topic · Debugging shell scripts
 
+> 🌐 **English** · [Tiếng Việt](../vi/README.md)
+
 Shell debugging is 80% "print the right thing at the right moment", 20% "read the manual again". No IDE debugger, no breakpoints — just tracing and thinking.
 
 The tools below cost nothing and take one minute to learn. Learn all of them; each shines in different situations.
@@ -141,11 +143,11 @@ If tracing isn't enough, https://bashdb.sourceforge.net/ provides gdb-style brea
 | "Works in my terminal, fails in cron" | Different `$PATH`, `.bashrc` not sourced, non-interactive shell | This page + `man bash` on `LOGIN SHELL` |
 | "Command not found" only in script | Missing shebang, not executable, or PATH lacks the tool | `chmod +x`, `#!/usr/bin/env bash` |
 | "unbound variable" | `set -u` fired — typo or missing default | Add `${var:-default}` or check spelling |
-| Loop counts to 5 but ends at 0 | The loop ran in a subshell (right of a pipe) | [learn/04-io-and-processes](../../learn/04-io-and-processes/en/notes.md) |
-| Argument with space became 2 args | Missing quotes on `$var` or `${arr[@]}` | [topics/quoting](../quoting/README.md) |
+| Loop counts to 5 but ends at 0 | The loop ran in a subshell (right of a pipe) | [learn/04-io-and-processes](../../../learn/04-io-and-processes/en/notes.md) |
+| Argument with space became 2 args | Missing quotes on `$var` or `${arr[@]}` | [topics/quoting](../../quoting/en/README.md) |
 | `cd` in script doesn't change caller dir | `cd` runs in the child process | Use `source script.sh` or an alias |
 | Script hangs forever | Blocking on stdin somewhere (missing `< /dev/null`?) or waiting for a child | Try `bash -x`, look for `read` or `wait` |
-| `set -e` didn't exit on failure | Command was in an `if`, `while`, or `\|\|` context — `-e` skips those | [learn/05-robust-scripts](../../learn/05-robust-scripts/en/notes.md) |
+| `set -e` didn't exit on failure | Command was in an `if`, `while`, or `\|\|` context — `-e` skips those | [learn/05-robust-scripts](../../../learn/05-robust-scripts/en/notes.md) |
 
 ## Debugging checklist for any weird bash bug
 
@@ -159,6 +161,6 @@ If tracing isn't enough, https://bashdb.sourceforge.net/ provides gdb-style brea
 
 ## Cross-reference
 
-- [topics/shellcheck](../shellcheck/README.md) — catch bugs before running.
-- [topics/quoting](../quoting/README.md) — cures 40% of "why is it broken?".
-- [learn/05-robust-scripts](../../learn/05-robust-scripts/en/notes.md) — strict mode and traps in context.
+- [topics/shellcheck](../../shellcheck/en/README.md) — catch bugs before running.
+- [topics/quoting](../../quoting/en/README.md) — cures 40% of "why is it broken?".
+- [learn/05-robust-scripts](../../../learn/05-robust-scripts/en/notes.md) — strict mode and traps in context.

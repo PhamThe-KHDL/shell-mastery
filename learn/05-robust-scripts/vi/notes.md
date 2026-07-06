@@ -118,5 +118,5 @@ usage() { echo "Usage: $0 ..." >&2; exit 2; }
 
 ## Đọc thêm
 
-- [topics/debugging](../../../topics/debugging/README.md)
+- [topics/debugging](../../../topics/debugging/vi/README.md)
 - [Bash Pitfalls](https://mywiki.wooledge.org/BashPitfalls)

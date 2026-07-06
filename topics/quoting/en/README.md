@@ -1,5 +1,7 @@
 # Topic · Quoting & word splitting
 
+> 🌐 **English** · [Tiếng Việt](../vi/README.md)
+
 The **#1 source of shell bugs**. If you learn only one advanced shell topic, learn this. Once quoting clicks, half the "why did my script do that?!" moments disappear.
 
 ## Why quoting matters — a 30-second demo
@@ -146,6 +148,6 @@ Every unquoted `$var` invites the shell to split on whitespace and expand globs.
 
 ## Cross-reference
 
-- [learn/01-basics](../../learn/01-basics/en/notes.md) — first introduction.
-- [topics/shellcheck](../shellcheck/README.md) — SC2086 catches unquoted expansions automatically.
-- [cheatsheets/test.md](../../cheatsheets/test.md) — `[ ]` vs `[[ ]]` at a glance.
+- [learn/01-basics](../../../learn/01-basics/en/notes.md) — first introduction.
+- [topics/shellcheck](../../shellcheck/en/README.md) — SC2086 catches unquoted expansions automatically.
+- [cheatsheets/test.md](../../../cheatsheets/test.md) — `[ ]` vs `[[ ]]` at a glance.

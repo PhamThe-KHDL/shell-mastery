@@ -10,7 +10,7 @@ Every change is weighed against these:
 
 1. **A learner-first repo, not a reference dump.** New content must serve someone working through the lessons. Cool trivia goes in a blog post, not here.
 2. **Every runnable script has a test.** If it can't be tested, it goes in `snippets/`, not `lib/` or `projects/`.
-3. **Bilingual (`en/` + `vi/`) prose in `learn/` — English only elsewhere.** Adding a third language would be a MAJOR undertaking; not currently planned.
+3. **Bilingual prose in `learn/` and `topics/` (both via `en/` + `vi/` subfolders) — English only in code, cheatsheets, and other section READMEs.** Adding a third language would be a MAJOR undertaking; not currently planned.
 4. **CI must stay green.** shellcheck-clean, all bats pass. No exceptions merged.
 5. **Slow is fine.** This is a personal-learning repo. Depth beats velocity.
 
@@ -123,7 +123,7 @@ Additions must pass `shellcheck --severity=warning`, have a bats test file, and 
 - [ ] `CODE_OF_CONDUCT.md`.
 - [ ] Issue templates for lesson requests, bug reports, project ideas.
 - [ ] Add a `screenshots/` folder or GIFs demonstrating the projects.
-- [ ] Translate `topics/` into Vietnamese — currently English only by design; user demand may change this.
+- [x] Translate `topics/` into Vietnamese — all five topics now ship `vi/README.md` alongside the English `en/README.md`.
 
 ## Stretch goals (interesting, not committed)
 

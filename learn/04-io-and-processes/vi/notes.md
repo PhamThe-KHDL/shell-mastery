@@ -111,5 +111,5 @@ Ctrl-Z                      # suspend foreground job
 
 ## Đọc thêm
 
-- [topics/debugging](../../../topics/debugging/README.md)
+- [topics/debugging](../../../topics/debugging/vi/README.md)
 - `man bash` — mục `SIGNAL`, `JOB CONTROL`, `SHELL EXECUTION ENVIRONMENT`.

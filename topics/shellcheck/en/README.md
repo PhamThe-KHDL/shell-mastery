@@ -1,5 +1,7 @@
 # Topic · shellcheck
 
+> 🌐 **English** · [Tiếng Việt](../vi/README.md)
+
 Static analyzer for shell scripts. Run it on everything. It catches most of the mistakes this repo teaches you to avoid — before you even run the script.
 
 If you install one tool from this whole repo, install shellcheck.
@@ -75,7 +77,7 @@ Real-time squiggles beat batch runs. Set this up once and forget:
 
 ## CI integration
 
-This repo's [`.github/workflows/build.yml`](../../.github/workflows/build.yml) runs shellcheck on every push. Copy the pattern:
+This repo's [`.github/workflows/build.yml`](../../../.github/workflows/build.yml) runs shellcheck on every push. Copy the pattern:
 
 ```yaml
 - name: Install shellcheck
@@ -84,7 +86,7 @@ This repo's [`.github/workflows/build.yml`](../../.github/workflows/build.yml) r
   run: find . -name '*.sh' -exec shellcheck --severity=warning {} +
 ```
 
-Also see [`tools/lint-all.sh`](../../tools/lint-all.sh) for a self-contained runner.
+Also see [`tools/lint-all.sh`](../../../tools/lint-all.sh) for a self-contained runner.
 
 ## Silencing warnings
 
@@ -162,5 +164,5 @@ Cleaner, safer, and shellcheck-clean. This is the loop: write, lint, fix, repeat
 
 ## Cross-reference
 
-- [tools/lint-all.sh](../../tools/lint-all.sh) — repo-wide runner.
-- [topics/quoting](../quoting/README.md) — what most shellcheck warnings are actually about.
+- [tools/lint-all.sh](../../../tools/lint-all.sh) — repo-wide runner.
+- [topics/quoting](../../quoting/en/README.md) — what most shellcheck warnings are actually about.

@@ -1,5 +1,7 @@
 # Topic · Performance
 
+> 🌐 **English** · [Tiếng Việt](../vi/README.md)
+
 Shell is fast for glue, slow for computation. Knowing which side of that line you're on decides whether "shell script" is the right tool for your job.
 
 The single most valuable thing on this page: **fork is expensive.** Once that sinks in, everything else follows.
@@ -52,7 +54,7 @@ name=$(basename "$path")
 name=${path##*/}
 ```
 
-Parameter expansion is a bash builtin. See [cheatsheets/parameter-expansion.md](../../cheatsheets/parameter-expansion.md).
+Parameter expansion is a bash builtin. See [cheatsheets/parameter-expansion.md](../../../cheatsheets/parameter-expansion.md).
 
 ### 3. Skip useless `cat`
 
@@ -95,7 +97,7 @@ done
 wait
 ```
 
-See [`learn/04-io-and-processes`](../../learn/04-io-and-processes/en/notes.md) for the full pattern.
+See [`learn/04-io-and-processes`](../../../learn/04-io-and-processes/en/notes.md) for the full pattern.
 
 ### 6. Avoid subshells when unnecessary
 
@@ -163,6 +165,6 @@ The skill isn't clinging to shell; it's knowing when to switch.
 
 ## Cross-reference
 
-- [learn/06-advanced](../../learn/06-advanced/en/notes.md) — parameter expansion (no-fork string ops).
-- [learn/04-io-and-processes](../../learn/04-io-and-processes/en/notes.md) — `xargs -P`, background jobs.
-- [cheatsheets/parameter-expansion.md](../../cheatsheets/parameter-expansion.md) — every string op you'd otherwise fork for.
+- [learn/06-advanced](../../../learn/06-advanced/en/notes.md) — parameter expansion (no-fork string ops).
+- [learn/04-io-and-processes](../../../learn/04-io-and-processes/en/notes.md) — `xargs -P`, background jobs.
+- [cheatsheets/parameter-expansion.md](../../../cheatsheets/parameter-expansion.md) — every string op you'd otherwise fork for.

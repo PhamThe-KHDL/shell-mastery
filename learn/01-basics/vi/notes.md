@@ -73,5 +73,5 @@ Glob chạy ở tầng shell **trước khi** lệnh nhận argument. Nếu khô
 
 ## Đọc thêm
 
-- [topics/quoting](../../../topics/quoting/README.md) — sâu hơn về `$IFS` và word splitting.
+- [topics/quoting](../../../topics/quoting/vi/README.md) — sâu hơn về `$IFS` và word splitting.
 - `man bash` mục `REDIRECTION`.

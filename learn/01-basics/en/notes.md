@@ -73,5 +73,5 @@ Globs are expanded by the shell **before** the command sees the arguments. If a 
 
 ## Further reading
 
-- [topics/quoting](../../../topics/quoting/README.md) — deeper dive into `$IFS` and word splitting.
+- [topics/quoting](../../../topics/quoting/en/README.md) — deeper dive into `$IFS` and word splitting.
 - `man bash` section `REDIRECTION`.

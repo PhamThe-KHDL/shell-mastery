@@ -49,7 +49,7 @@ For fancy prompts (git branch, exit code color): consider `starship` or `oh-my-b
 
 ## Debugging
 
-See [topics/debugging](../../topics/debugging/README.md).
+See [topics/debugging](../../topics/debugging/en/README.md).
 
 ## References
 

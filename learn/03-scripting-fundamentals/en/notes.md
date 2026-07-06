@@ -162,5 +162,5 @@ input=$1
 
 ## Further reading
 
-- [topics/quoting](../../../topics/quoting/README.md)
+- [topics/quoting](../../../topics/quoting/en/README.md)
 - [snippets/getopts.sh](../../../snippets/getopts.sh)
