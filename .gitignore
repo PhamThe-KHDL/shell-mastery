@@ -1,4 +1,5 @@
 .DS_Store
 *.log
+!tests/fixtures/*.log
 /tmp/
 scratch/
